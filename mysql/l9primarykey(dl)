@@ -1,0 +1,38 @@
+=>PRIMARY KEY 
+
+Method 1 
+CREATE TABLE IF NOT EXISTS persons(
+    id INT NOT NULL PRIMARY KEY,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255),
+    age INT
+);
+
+Method 2 
+CREATE TABLE IF NOT EXISTS person(
+    id INT NOT NULL,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255),
+    age INT,
+    PRIMARY KEY (id)
+);
+
+=>Exercise 
+CREATE TABLE IF NOT EXISTS computers(
+    brand VARCHAR(255),
+    type VARCHAR(255)
+);
+
+INSERT INTO computers(brand,type)
+VALUES('asus','china'),
+('ausus','china');
+
+SELECT * FROM computers;
+
+DROP TABLE IF EXISTS computers;
+
+CREATE TABLE IF NOT EXISTS computers(
+    brand VARCHAR(255),
+    type VARCHAR(255),
+    PRIMARY KEY(brand)
+);

@@ -1,0 +1,238 @@
+mkdir lesson10
+cd lesson10
+
+git init
+
+touch file0.txt
+ls 
+echo "my first project" > file0.txt
+git add * (or) git add -A (or) git add .
+git commit -m "A file0"
+git status
+
+touch file1.txt
+touch file2.txt
+
+vim file1.txt
+edit : write down
+1.this is first line
+2.this is second line
+esc > : wq
+
+cat file1.txt
+
+git status
+git status -s 
+
+git add .
+git commit -m "file 1 2 A"
+git status
+
+
+touch file3.txt
+edit : write down
+1.this is the first expression
+2.this is the second expression
+
+esc > :wq
+
+vim file2.txt
+1.this is the first comment
+2.this is the second comment
+
+esc > :wq
+
+cat file2.txt
+
+git status
+git status -s 
+
+git add .
+git commit -m "file 2 M file 3 A"
+git status
+
+ls
+
+
+touch file5.txt
+
+vim file0.txt
+edit : write down
+1. my first experience
+
+
+esc > :wq
+
+
+
+
+
+git log 
+
+
+git log 
+git log --oneline
+
+ls
+
+Note : rm by OS
+rm file3.txt
+ls  
+
+
+Note : git rm by Git
+git rm file1.txt
+ls
+
+
+*error = by Git
+git checkout file1.txt
+
+*can undo = by OS
+git checkout file3.txt
+
+git add .
+git status
+git status -s 
+
+git commit -m "M file0 D file1 A file5"
+git status
+
+
+
+--------------------------------------------------
+
+
+ls 
+cat file0.txt
+cat file2.txt
+cat file3.txt 
+cat file5.txt
+
+git log --oneline
+
+vim file2.txt
+edit : write down
+3.this is the third comment 
+4.this is the fourth comment 
+5.this is the fifth comment 
+
+esc > :wq
+
+cat file2.txt
+git status
+
+git restore file2.txt 
+git status 
+
+cat file2.txt 
+
+vim file2.txt
+edit : write down
+3.this is the third comment 
+4.this is the fourth comment 
+5.this is the fifth comment 
+
+esc > :wq
+
+cat file2.txt
+git diff 
+
+git add . 
+git commit -m :M file2"
+git status 
+
+ls
+
+
+cat file0.txt 
+vim file0.txt 
+my second project 
+my second experience 
+
+esc > :wq
+
+cat file0.txt
+
+
+cat file2.txt 
+
+vim file2.txt
+edit : write down
+6.this is the sixth comment 
+7.this is the seventh comment 
+8.this is the eighth comment 
+
+cat file2.txt 
+
+
+git status
+
+git add .
+git status 
+
+git restore --staged file0.txt
+git status 
+
+cat file0.txt
+
+git restore --staged file2.txt
+git status
+
+
+git add .
+git status 
+git restore --staged *   //(to undo add - staged area ကနေပြန်ဆွဲထုတ်)
+git status
+
+
+git add .
+git status 
+
+git commit -m "M file0 M file2"
+git status
+
+
+git log   //(press q to exit)
+git log -3
+git log --oneline
+
+git log --all --oneline (or) git log --oneline --all
+
+
+ls 
+git checkout 0ad5c4c -- file2.txt
+
+ls
+cat file2.txt 
+cat file0.txt 
+
+git log --oneline
+
+ls
+cat file0.txt 
+git checkout 90f5ff8 -- file0.txt 
+ls  
+cat file0.txt
+
+ls  
+cat file2.txt 
+cat file0.txt 
+git checkout 287d469 file2.txt   //(it's ok if not -- )
+ls 
+cat file2.txt 
+cat file0.txt
+
+
+ls  
+cat file2.txt 
+cat file0.txt 
+
+
+*error 
+git checkout 478103a *
+
+-------------------------------------------------------------
+
+
+

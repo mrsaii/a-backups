@@ -1,0 +1,212 @@
+=>Commit
+
+mkdir lesson13
+
+git init
+
+touch file0.txt 
+
+vim file0.txt 
+eidt : write down
+1. this is the fist line
+2. this is the second line 
+
+cat file0.txt
+
+git status
+git branch
+git log 
+
+git add .
+git commit -m "file 0 added" 
+
+git status  
+git log --all --oneline
+
+
+vim file1.txt
+1.this is the first post
+2.this is the second post 
+
+vim file2.txt
+1.this is the first comment
+2.this is the second comment 
+
+git add *
+git commit -m "file 1 2 added"
+git status 
+
+vim file0.txt 
+3.this is the third line 
+4.this is the fourth line 
+
+vim file2.txt 
+3.this is the third comment 
+4.this is the fourth comment 
+
+git add .
+git commit -m "M 0 2"
+git log --all --oneline
+
+ls 
+
+cat file0.txt 
+cat file1.txt 
+cat file2.txt 
+
+git checkout 1564896
+ls (result = file0.txt)
+cat file0.txt 
+
+git log --all --oneline 
+
+git status 
+git branch 
+
+git checkout 7763668
+ls (reslut = file 0 1 2)
+cat file0.txt 
+cat file1.txt 
+cat file2.txt 
+
+git log --all --oneline
+
+git checkout 5a542d3
+ls 
+
+git status 
+git branch 
+
+git checkout main
+
+touch file3.txt 
+
+vim file3.txt 
+edit : write down 
+1. this is the first react 
+2. this is the second react 
+
+git status 
+
+git add .
+
+git restore --staged file3.txt 
+
+git status 
+
+git add .
+git commit -m "file 3 added"
+
+
+vim file3.txt 
+edit : write down 
+3. this is the third react 
+4. this is the fourth react 
+
+git status 
+
+git add .
+
+git status 
+
+cat file3.txt
+
+git restore --staged file3.txt 
+
+cat file3.txt (4)
+
+git restore file3.txt 
+
+cat file3.txt  (2)
+
+vim file3.txt 
+edit : write down 
+3. this is the third react 
+4. this is the fourth react 
+
+git status 
+
+cat file3.txt 
+
+git reset HEAD file3.txt  (same at git restore --staged file3.txt)
+
+git status 
+
+
+git add .
+git commit -m "M f3"
+
+cat file3.txt
+
+git log --all --oneline 
+
+git status 
+
+git reset 1bbd731 --soft (--soft = already staged area = git add .)
+
+git status 
+
+cat file3.txt 
+
+git log --all --oneline 
+
+git restore --staged file3.txt 
+
+git status 
+
+git add .
+
+git status 
+
+git commit -m "M f3 again"
+
+git log --all --oneline 
+
+
+git reset 5a542d3 --soft (--soft = already staged area = git add .)
+
+git status 
+
+ls  
+
+cat file3.txt 
+
+git commit -m "A f3 again" 
+
+git status 
+
+git log --all --oneline 
+
+git show 
+
+git reset 7763668 --mixed (--mixed = unstaged area)
+
+git status 
+
+ls 
+
+git add . 
+
+git commit -m "M 0 2 A 3"
+
+ls 
+
+cat file3.txt 
+
+
+
+=> git reflog 
+
+git log --all --oneline 
+
+git reset --hard b6b6033
+
+ls 
+
+git log --all --oneline 
+
+cat file3.txt 
+
+
+18FG
+

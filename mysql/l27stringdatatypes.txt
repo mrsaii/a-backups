@@ -1,0 +1,126 @@
+=>Data Types ( Base on Version 8.0 )
+
+*String Data Types ( types )
+
+Data Types								Desctription
+1. CHAR(size)							A Fixed Length String (can contain letters,numbers and special characters). 0 to 255	
+2. VARCHAR(size)						A Variable Length String (can contain letters,numbers and special characters). 0 to 255
+3. TEXT  								Hold a string maximun size 68,xxx (65kg)
+4. TINYTEXT 							Hold a string maximun size 255 (255 bytes)
+5. MEDIUMTEXT 							Hold a string maximun size 16,xxx,xxx (16 mb)			6. LONGTEXT								Hold a string maximun size 4,xxx,xxx,xxx (4 gb)	
+ 							
+7. BINARY(size) 						Equal to CHAR(), but strores binary byte string.
+8. VARBINARY() 							Equal to VARCHAR(), but strores binary byte string.
+9. TINYBLOB 							For BLOBS(Binary Large Objects). Max size (255 bytes)
+10. BLOB() 								For BLOBS(Binary Large Objects). Max size 68,xxx (65 kb)
+11. MEDIUMBLOB  						For BLOBS(Binary Large Objects). Max size 16,xxx,xxx(16 mb)
+12. LONGBLOB 							For BLOBS(Binary Large Objects). Max size 4,xxx,xxx,xxx (4 gb)
+
+13. ENUM('val1','val2','val3',....) 	A string object that can have only one value, chose form a list of possible value
+14. SET('val1','val2','val3',....)      A string object that can have 1 or more value, chose form a list of possible value. 
+
+
+
+
+1 bit = 8 bit
+byte = 1024
+kb
+mb
+gb
+tb
+..
+...
+....
+
+=> CHAR
+* CHAR is faster for fixed legnth text
+eg. telephone numbers, zip code , Yes/No Y/N , Male/Female M/F
+
+
+CHAR(4) VS VARCHAR(4)
+
+User Input
+VALUE 		CHAR(4) 		Storage 		VARCHAR(4) 		    Storage
+''			'    ' 			4 bytes			'' 				    1 byte
+'ab'		'ab  ' 			4 bytes 		'ab' 			    3 bytes
+'abcd' 		'abcd' 			4 bytes 		'abcd'				5 bytes
+'abcdefg'	'abcd' 			4 bytes			'abcd'     			5 bytes
+
+
+------------------------------------------------------
+
+=EXERCISE
+
+CREATE TABLE IF NOT EXISTS contacts(
+	name CHAR(5),
+	city VARCHAR(10)
+);
+
+DESC contacts;
+
+
+*error
+INSERT INTO contacts(name,city)
+VALUES ('aung aung','mandalay'),
+('tar gyi','mawlamyine'),
+('kyaw gyi','yangon'),
+('su su','bago'),
+('hla hla','pyinoolwin');
+
+
+INSERT INTO contacts(name,city)
+VALUES ('aung','mandalay'),
+('tar','mawlamyine'),
+('kyaw','yangon'),
+('su','bago'),
+('hla','pyinoolwin');
+
+------------------------------------------------------
+
+
+CREATE TABLE IF NOT EXISTS mytasks(	
+	id INT DEFAULT 10,
+	content VARCHAR(50)
+);
+
+DESC mytasks;
+
+INSERT INTO mytasks(content) VALUES ('have to cook'),('have to shop');
+
+SELECT * FROM mytasks;
+
+
+
+*error  (cuz Data too long for column 'content')
+CREATE TABLE IF NOT EXISTS myjobs(
+	id INT,
+	content VARCHAR(5) DEFAULT('nothing to show')
+);
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS myworks(
+	id INT DEFAULT 10,
+	content TEXT
+);
+
+
+DESC myworks;
+
+
+INSERT INTO myworks(id,content) VALUE(1,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+
+SELECT * FROM myworks;
+
+
+
+*error TEXT can't have a default value;
+CREATE TABLE IF NOT EXISTS mytitles(
+	id INT DEFAULT 10,
+	content TEXT DEFAULT 'have a good day'
+);
+
+
+

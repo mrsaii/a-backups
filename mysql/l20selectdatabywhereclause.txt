@@ -1,0 +1,225 @@
+=> Select Data By Using WHERE Clause
+
+=Syntax
+SELECT * FROM tablename
+WHERE condition;
+
+SELECT column1,column2,column3... FROM tablename
+WHERE condition;
+
+
+= Operators in the WHERE clause ( 9 types )
+
+= 			Equal
+> 			Greater than
+<  			Less than
+>=  		Greater than or Equal
+<= 			Less than or Equal
+<> 			Not equal. Note : In some versions of SQL this operator may be written as !=
+BETWEEN 	Between as a certain range
+LIKE 		Search for a pattern
+IN 			To specify multiple possible values for a columns
+
+
+
+SELECT * FROM customers;
+
+SELECT * FROM customers
+WHERE city = "mandalay";
+
+
+SELECT firstname,lastname,city,country FROM customers
+WHERE city = "mandalay";
+
+
+SELECT firstname,lastname,city,country FROM customers
+WHERE city LIKE "mandalay";
+
+
+SELECT * FROM customers
+WHERE id = 15;
+
+
+INSERT INTO customers(firstname,lastname,age,gender,amount,city,country)
+VALUE ('aung','tun',20,'male',200000,'mandalay','myanmar'),
+('htoo zayar','kyaw',30,'male',150000,'yangon','myanmar'),
+('tin','htut',18,'male',50000,'bago','myanmar'),
+('tin linn','htun',32,'male',90000,'mawlamyine','myanmar'),
+('tun thura','zaw',16,'male',170000,'yangon','myanmar'),
+('thet htoo','naing',50,'male',300000,'mandalay','myanmar'),
+('tin htoo','aung',30,'male',300000,'bangkok','thailand'),
+('htun linn','aung',30,'male',150000,'chainmaing','thailand'),
+('hein htut','zaw',25,'male',800000,'yanaung','thailand'),
+('kyaw htun','linn',17,'male',500000,'bangkok','thailand');
+
+
+INSERT INTO customers(firstname,lastname,age,gender,amount,city,country)
+VALUE ('pa','pa',20,'female',100000,'mandalay','myanmar'),
+('po po','hay tar',30,'female',250000,'yangon','myanmar'),
+('hsu ya ti','linn',18,'female',30000,'bago','myanmar'),
+('nang myat','phyo thinn',32,'female',40000,'mawlamyine','myanmar'),
+('mya hnin yi','lwin',16,'female',270000,'yangon','myanmar'),
+('honey','nway oo',50,'female',600000,'mandalay','myanmar'),
+('su su','hlaing',30,'female',600000,'bangkok','thailand'),
+('nora suu','kyi',30,'female',200000,'chainmaing','thailand'),
+('nann su','myat',25,'female',600000,'yanaung','thailand'),
+('khin wint','wha',17,'female',300000,'bangkok','thailand');
+
+
+
+SELECT * FROM customers
+WHERE firstname = 'nora suu';
+
+SELECT * FROM customers
+WHERE firstname = 'Nora Suu';
+
+SELECT * FROM customers
+WHERE firstname LIKE 'nora suu';
+
+
+SELECT * FROM customers
+WHERE firstname LIKE 'Nora Suu';
+
+--------------------------------------
+
+=> <> / !=  ( not equal )
+
+SELECT * FROM customers;
+
+
+SELECT id,firstname,lastname,city,country
+FROM customers
+WHERE city <> 'mandalay';
+
+
+SELECT id,firstname,lastname,city,country
+FROM customers
+WHERE city != 'mandalay';
+
+
+SELECT id,firstname,lastname,city,country
+FROM customers
+WHERE NOT city = 'mandalay';
+
+SELECT id,firstname,lastname,city,country
+FROM customers
+WHERE NOT city LIKE 'mandalay';
+
+SELECT id,firstname,lastname,city,country
+FROM customers
+WHERE city NOT LIKE 'mandalay';
+
+
+*error
+SELECT id,firstname,lastname,city,country
+FROM customers
+WHERE NOT city 'mandalay';
+
+*error
+SELECT id,firstname,lastname,city,country
+FROM customers
+WHERE city NOT 'mandalay';
+
+
+*error
+SELECT id,firstname,lastname,city,country
+FROM customers
+WHERE city NOT = 'mandalay';
+
+*error
+SELECT id,firstname,lastname,city,country
+FROM customers
+WHERE city !LIKE 'mandalay';
+
+----------------------------------
+
+SELECT * FROM customers;
+
+SELECT id,firstname,lastname,city,amount FROM customers
+WHERE amount = 200000;
+
+
+SELECT id,firstname,lastname,city,amount FROM customers
+WHERE amount = '200000';
+
+SELECT id,firstname,lastname,city,amount FROM customers
+WHERE amount < 200000;
+
+SELECT id,firstname,lastname,city,amount FROM customers
+WHERE amount <= 200000;
+
+SELECT id,firstname,lastname,city,amount FROM customers
+WHERE amount > 200000;
+
+SELECT id,firstname,lastname,city,amount FROM customers
+WHERE amount >= 200000;
+
+SELECT id,firstname,lastname,city,amount FROM customers
+WHERE amount <> 200000;
+
+SELECT id,firstname,lastname,city,amount FROM customers
+WHERE amount LIKE 200000;
+
+----------------------------
+
+=> BETWEEN with AND
+
+SELECT * FROM customers;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE amount BETWEEN 200000 AND 300000;
+
+SELECT id,firstname,lastname,age,city FROM customers
+WHERE amount BETWEEN 200000 AND 300000;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE amount BETWEEN 200000 AND 300000 AND city = 'mandalay';
+
+*error
+SELECT id,firstname,lastname,age,amount,city FROM customers 
+WHERE city = 'mandalay' && amount BETWEEN  200000 && 300000;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers 
+WHERE amount NOT BETWEEN  200000 AND 300000;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers 
+WHERE amount NOT BETWEEN  200000 AND 300000 AND city = 'yangon';
+
+
+------------------------
+
+=> MODULE + - * / %
+
+SELECT * FROM customers;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE age = 17;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE age+1 = 18;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE age-5 = 25;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE age*2 > 50;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE amount/2 < 100000;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE age%2 = 0;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE age%2 LIKE 0;
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE age%2 != 0;
+
+
+SELECT id,firstname,lastname,age,amount,city FROM customers
+WHERE age%2 NOT LIKE 0;
+
+
+
+

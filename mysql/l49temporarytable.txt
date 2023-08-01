@@ -1,0 +1,27 @@
+
+
+
+
+CREATE TEMPORARY TABLE IF NOT EXISTS chatrooms(
+	id INT NOT NULL AUTO INCREMENT,
+	name VARCHAR(20),
+	age INT,
+	city VARCHAR(50),
+	PRIMARY KEY(id)
+);
+
+DESC  chatrooms;
+
+SHOW TABLES;
+
+INSERT INTO chatrooms(name,age,city)
+VALUES('aung aung',28,'yangon'),
+('kyaw kyaw',30,'mandalay'),
+('tun tun',40,'bago');
+
+
+SELECT * FROM chatrooms;
+
+=>Drop Temporary Table
+DROP TABLE chatrooms;
+DROP TEMPORARY TABLE chatrooms;

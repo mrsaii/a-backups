@@ -1,0 +1,35 @@
+git --version
+
+=>Set Local user name and email
+git config --local user.name "mr.sai"
+git config --local user.email "admin@dlt.com"
+
+git config --local user.name
+git config --local user.email
+
+
+=>Check List all Variables
+git config -l
+git config -l --show-origin
+
+=>Remove List All Variables
+git config --local --unset user.name
+git config --local --unset user.email
+
+git config --local user.name
+git config --local user.email
+
+git config -l --show-origin
+
+
+git init lesson1
+cd lesson1/
+
+=>Check Folder Dir
+ls 
+ls -la 
+
+git status
+
+=> Set Default Branch
+git config --global init.defaultBarnch main

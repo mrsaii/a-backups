@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grid Template Columns</title>
+	<link href="./tailwind.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+	<h1>This is tailwind css</h1>
+
+	<h4>grid-cols</h4>
+	<div class="grid grid-cols-12 gap-4 text-white">
+		<div class="w-44 h-20 bg-green-900">DIV 1</div>
+		<div class="w-44 h-20 bg-green-900">DIV 2</div>
+		<div class="w-44 h-20 bg-green-900">DIV 3</div>
+		<div class="w-44 h-20 bg-green-900">DIV 4</div>
+		<div class="w-44 h-20 bg-green-900">DIV 5</div>
+		<div class="w-44 h-20 bg-green-900">DIV 6</div>
+		<div class="w-44 h-20 bg-green-900">DIV 7</div>
+		<div class="w-44 h-20 bg-green-900">DIV 8</div>
+		<div class="w-44 h-20 bg-green-900">DIV 9</div>
+		<div class="w-44 h-20 bg-green-900">DIV 10</div>
+		<div class="w-44 h-20 bg-green-900">DIV 11</div>
+		<div class="w-44 h-20 bg-green-900">DIV 12</div>
+	</div>
+
+	<hr class="my-5"/>
+
+
+	<h4>col-span</h4>
+	<div class="grid grid-cols-3 gap-4 text-white">
+		<div class="h-20 bg-green-900 col-span-1">DIV 1</div>
+		<div class="h-20 bg-green-900">DIV 2</div>
+		<div class="h-20 bg-green-900">DIV 3</div>
+		<div class="h-20 bg-green-900 col-span-2">DIV 4</div>
+		<div class="h-20 bg-green-900">DIV 5</div>
+		<div class="h-20 bg-green-900 col-span-3">DIV 6</div>
+		<div class="h-20 bg-green-900">DIV 7</div>
+		<div class="h-20 bg-green-900 col-span-3">DIV 8</div>
+		<div class="h-20 bg-green-900">DIV 9</div>
+		<div class="h-20 bg-green-900">DIV 10</div>
+		<div class="h-20 bg-green-900">DIV 11</div>
+		<div class="h-20 bg-green-900">DIV 12</div>
+	</div>
+
+	<hr class="my-5"/>
+
+
+
+	<h4>col-start / col-end</h4>
+	<div class="grid grid-cols-4 gap-4 text-white">
+		<div class="h-20 bg-green-900 col-span-1 col-start-2">DIV 1</div>
+		<div class="h-20 bg-green-900">DIV 2</div>
+		<div class="h-20 bg-green-900">DIV 3</div>
+		<div class="h-20 bg-green-900 col-span-2 col-start-2">DIV 4</div>
+		<div class="h-20 bg-green-900">DIV 5</div>
+		<div class="h-20 bg-green-900 col-span-3 col-start-2">DIV 6</div>
+		<div class="h-20 bg-green-900 col-start-4">DIV 7</div>
+		<div class="h-20 bg-green-900">DIV 8</div>
+		<div class="h-20 bg-green-900">DIV 9</div>
+		<div class="h-20 bg-green-900">DIV 10</div>
+		<div class="h-20 bg-green-900 col-start-1 col-end-5">DIV 11</div>
+		<div class="h-20 bg-green-900">DIV 12</div>
+	</div>
+
+	<hr class="my-5"/>
+
+
+	<h4>grid-rows</h4>
+	<div class="grid grid-flow-col grid-rows-4 gap-4 text-white">
+		<div class="w-44 h-20 bg-green-900">DIV 1</div>
+		<div class="w-44 h-20 bg-green-900">DIV 2</div>
+		<div class="w-44 h-20 bg-green-900">DIV 3</div>
+		<div class="w-44 h-20 bg-green-900">DIV 4</div>
+		<div class="w-44 h-20 bg-green-900">DIV 5</div>
+		<div class="w-44 h-20 bg-green-900">DIV 6</div>
+		<div class="w-44 h-20 bg-green-900">DIV 7</div>
+		<div class="w-44 h-20 bg-green-900">DIV 8</div>
+		<div class="w-44 h-20 bg-green-900">DIV 9</div>
+		<div class="w-44 h-20 bg-green-900">DIV 10</div>
+		<div class="w-44 h-20 bg-green-900">DIV 11</div>
+		<div class="w-44 h-20 bg-green-900">DIV 12</div>
+	</div>
+
+	<hr class="my-5"/>
+
+
+	<h4>grid-rows</h4>
+	<div class="grid grid-flow-col grid-rows-3 gap-4 text-white">
+		<div class="w-44 bg-green-900 row-span-3">DIV 1</div>
+		<div class="w-44 bg-green-900">DIV 2</div>
+		<div class="w-44 bg-green-900">DIV 3</div>
+		<div class="w-44 bg-green-900">DIV 4</div>
+		<div class="w-44 bg-green-900 row-span-3">DIV 5</div>
+		<div class="w-44 bg-green-900">DIV 6</div>
+		<div class="w-44 bg-green-900">DIV 7</div>
+		<div class="w-44 bg-green-900">DIV 8</div>
+		<div class="w-44 bg-green-900 row-span-2">DIV 9</div>
+		<div class="w-44 bg-green-900">DIV 10</div>
+		<div class="w-44 bg-green-900">DIV 11</div>
+		<div class="w-44 bg-green-900 row-span-2">DIV 12</div>
+	</div>
+
+	<hr class="my-5"/>
+
+
+	<div class="grid grid-flow-col grid-rows-3 gap-4 text-white">
+		<div class="bg-green-900 col-span-3 row-span-2">DIV 1</div>
+		<div class="bg-green-900">DIV 2</div>
+		<div class="bg-green-900">DIV 3</div>
+		<div class="bg-green-900">DIV 4</div>
+		<div class="bg-green-900">DIV 5</div>
+		<div class="bg-green-900">DIV 6</div>
+		<div class="bg-green-900">DIV 7</div>
+		<div class="bg-green-900">DIV 8</div>
+		<div class="bg-green-900">DIV 9</div>
+		<div class="bg-green-900">DIV 10</div>
+		<div class="bg-green-900">DIV 11</div>
+		<div class="bg-green-900 row-span-2">DIV 12</div>
+	</div>
+
+	<hr class="my-5"/>
+
+
+	<h4>row-start / row-end</h4>
+	<div class="grid grid-flow-col grid-rows-3 gap-4 text-white">
+		<div class="bg-green-900 row-span-2 row-start-2">DIV 1</div>
+		<div class="bg-green-900 col-span-2">DIV 2</div>
+		<div class="bg-green-900">DIV 3</div>
+		<div class="bg-green-900">DIV 4</div>
+		<div class="bg-green-900">DIV 5</div>
+		<div class="bg-green-900">DIV 6</div>
+		<div class="bg-green-900">DIV 7</div>
+		<div class="bg-green-900">DIV 8</div>
+		<div class="bg-green-900">DIV 9</div>
+		<div class="bg-green-900">DIV 10</div>
+		<div class="bg-green-900 row-start-3">DIV 11</div>
+		<div class="bg-green-900 row-start-1 row-end-4">DIV 12</div>
+	</div>
+
+	<hr class="my-5"/>
+
+
+
+
+</body>
+</html>
+
+
+
+
+<!-- 
+grid-cols-1
+grid-cols-2
+grid-cols-3
+grid-cols-4
+grid-cols-5
+grid-cols-6
+grid-cols-7
+grid-cols-8
+grid-cols-9
+grid-cols-10
+grid-cols-11
+grid-cols-12
+grid-cols-none
+ -->
+
+
+<!-- 
+col-auto
+
+ col-span-1 
+ col-span-2
+ col-span-3
+ col-span-4
+ col-span-5
+ col-span-6
+ col-span-7
+ col-span-8
+ col-span-9
+ col-span-10
+ col-span-11
+ col-span-12
+
+ col-span-full 
+-->
+
+
+
+<!-- 
+col-start-auto 
+
+col-start-1
+col-start-2
+col-start-3
+col-start-4
+col-start-5
+col-start-6
+col-start-7
+col-start-8
+col-start-9
+col-start-10
+col-start-11
+col-start-12
+col-start-13
+
+
+
+col-end-auto 
+
+col-end-1
+col-end-2
+col-end-3
+col-end-4
+col-end-5
+col-end-6
+col-end-7
+col-end-8
+col-end-9
+col-end-10
+col-end-11
+col-end-12
+col-end-13
+ -->
+
+
+<!-- 
+ grid-rows-1
+ grid-rows-2
+ grid-rows-3
+ grid-rows-4
+ grid-rows-5
+ grid-rows-6
+ grid-rows-none
+ -->
+
+
+<!-- 
+ row-auto 
+
+ row-span-1
+ row-span-2
+ row-span-3
+ row-span-4
+ row-span-5
+ row-span-6
+
+ row-span-full 
+-->
+
+
+<!-- 
+row-start-auto 
+
+row-start-1
+row-start-2
+row-start-3
+row-start-4
+row-start-5
+row-start-6
+row-start-7
+
+
+row-end-1
+row-end-2
+row-end-3
+row-end-4
+row-end-5
+row-end-6
+row-end-7
+ -->
+
+
+<!-- 5RW -->

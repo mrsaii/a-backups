@@ -1,0 +1,164 @@
+=>UNIQUE Constraint
+
+=Constrains
+PRIMARY KEY
+FOREIGN KEY
+NOT NULL
+UNIQUE
+DEFAULT
+CHECK
+
+
+
+
+=sybtax (Single Column)
+
+CREATE TABLE tablename(
+	column1 datatype,
+	column2 datatype UNIQUE,
+	column3 datatype,
+	.....
+);
+
+
+
+=sybtax (Multi Column)
+
+CREATE TABLE tablename(
+	column1 datatype,
+	column2 datatype,
+	column3 datatype,
+	.....,
+	UNIQUE(column1,column2)
+);
+
+
+------------------------------------------------
+
+EXERCISE ( Single )
+
+CREATE TABLE IF NOT EXISTS countries(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(50) NOT NULL UNIQUE,
+	capital VARCHAR(50) NOT NULL,
+	currencyname VARCHAR(30),
+	iscode VARCHAR(10)
+);
+
+
+DESC countries;
+SHOW INDEX FROM countries;
+
+=>DROP UNIQUE KEY
+ALTER TABLE countries DROP INDEX name;
+
+
+DESC countries;
+SHOW INDEX FROM countries;
+
+DROP TABLE IF EXISTS countries;
+
+
+
+CREATE TABLE IF NOT EXISTS countries(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	capital VARCHAR(50) NOT NULL,
+	currencyname VARCHAR(30),
+	iscode VARCHAR(10),
+	UNIQUE(name)
+);
+
+
+DESC countries;
+SHOW INDEX FROM countries;
+SHOW INDEX IN countries;
+
+
+INSERT INTO countries(name,capital,currencyname,iscode)
+VALUES ('myanmar','naypyidaw','myanmar kyat','mmk'),
+('thailand','bangkok','thai baht','thb'),
+('indonesia','jakata','indonesia rupiee','idr'),
+('srilanka','colombo','srilanka rupee','lkr');
+
+SELECT * FROM countries;
+
+
+*error
+INSERT INTO countries(name,capital,currencyname,iscode)
+VALUE ('myanmar','yangon','burmese kyat','mmk');
+
+*error
+INSERT INTO countries(name,capital,currencyname,iscode)
+VALUE ('Myanmar','yangon','burmese kyat','mmk');
+
+SELECT * FROM countries;
+
+*error
+UPDATE countries SET name="Thailand" WHERE id=4;  //(Thailand is already exist)
+
+
+-------------------------------------------------------------------
+
+=EXERCISE ( Multi )
+
+CREATE TABLE IF NOT EXISTS cashiers(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	email VARCHAR(50) NOT NULL UNIQUE,
+	password VARCHAR(100) NOT NULL,
+	phone VARCHAR(15) UNIQUE
+);
+
+DESC cashiers;
+SHOW INDEX FROM cashiers;
+
+=>DROP UNIQUE Key
+ALTER TABLE cashiers DROP INDEX phone;
+ALTER TABLE cashiers DROP INDEX email;
+
+
+DESC cashiers;
+SHOW INDEX FROM cashiers;
+
+
+DROP TABLE IF EXISTS cashiers;
+
+
+INSERT INTO cashiers(name,email,password,phone)
+VALUES('su su','susu@gamil.com','12345','0911111'),
+('yu yu','yuyu@gamil.com','12345','0922222'),
+('hla hla','hlahla@gamil.com','12345','0933333'),
+('tun tun','tuntun@gamil.com','12345','0944444');
+
+SELECT * FROM cashiers;
+
+
+
+*error  (email already in record)
+INSERT INTO cashiers(name,email,password,phone)
+VALUE('ma ma','susu@gamil.com','12345','0955555');
+
+
+*error  (phone already in record)
+INSERT INTO cashiers(name,email,password,phone)
+VALUE('ma ma','mama@gamil.com','12345','0944444');
+
+
+*error  (phone&email already in record)
+INSERT INTO cashiers(name,email,password,phone)
+VALUE('ma ma','yuyu@gamil.com','12345','0933333');
+
+
+ALTER TABLE cashiers DROP INDEX phone;
+SHOW INDEX FROM cashiers;
+
+*can
+INSERT INTO cashiers(name,email,password,phone)
+VALUE('ma ma','mama@gamil.com','12345','0933333');
+
+SELECT * FROM cashiers;
+
+---------------------------------------------------------------------
+
+12UN

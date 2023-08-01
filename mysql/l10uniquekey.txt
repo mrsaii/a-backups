@@ -1,0 +1,55 @@
+=> UNIQUE KEY
+
+DESC itaccessories;
+SELECT * FROM itaccessories;
+SHOW INDEX FROM itaccessories;
+
+
+= Method 1
+ALTER TABLE itaccessories;
+ADD UNIQUE (item);
+
+
+= Method 2
+ALTER TABLE itaccessories
+ADD CONSTRAINT uc_item_totalqty UNIQUE (item,totalqty);
+
+INSERT INTO itaccessories(id,item,totalqty,brand,unitprice)
+VALUE (7,'memory stick',50,'hp',30);
+
+INSERT INTO itaccessories(id,item,totalqty,brand,unitprice)
+VALUE (8,'memory stick',10,'acer',20);
+
+INSERT INTO itaccessories(id,item,totalqty,brand,unitprice)
+VALUE (9,'memory stick',50,'samsung',50);
+
+
+
+INSERT INTO itaccessories(id,item,totalqty,brand,unitprice)
+VALUE (6,'monitor',10,'acer',50);
+
+
+*error (caus mouse already in)
+INSERT INTO itaccessories(id,item,totalqty,brand,unitprice)
+VALUE (6,'mouse',10,'hp',10);
+
+*error
+INSERT INTO itaccessories(id,item,totalqty,brand,unitprice)
+VALUE (6,'Mouse',10,'hp',10);
+
+SELECT * FROM itaccessories;
+
+
+=> Drop UNIQUE Key
+
+ALTER TABLE itaccessories DROP INDEX item;
+
+DESC itaccessories;
+SELECT * FROM itaccessories;
+SHOW INDEX FROM itaccessories;
+
+
+ALTER TABlE itaccessories DROP INDEX uc_item_totalqty;
+DESC itaccessories;
+SELECT * FROM itaccessories;
+SHOW INDEX FROM itaccessories;

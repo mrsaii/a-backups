@@ -1,0 +1,11 @@
+=> Github 
+account must have 
+
+Account 1 
+ASUS Laptop (Linux OS -> SSH to Github)
+
+Account 2 
+Microsoft Surface Prof (Windows10 OS -> SSH to Github)
+
+--------------------------------------------------------
+

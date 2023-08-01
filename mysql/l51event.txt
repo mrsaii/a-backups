@@ -1,0 +1,116 @@
+=>Event
+
+
+Event Type (Schedule)
+(i) One Time Event
+(ii) Recrring Event
+
+
+=>To see event was ON/OFF
+SHOW PROCESSLIST;
+
+SET GLOBAL event_scheduler = ON;
+SET GLOBAL event_scheduler = OFF;
+
+
+=Syntax
+
+(i) One Time Event
+
+-Method 1
+CREATE EVENT eventname
+ON SCHEDUALE AT timestamp
+DO
+statements
+
+-Method 2
+CREATE EVENT eventname
+ON SCHEDUALE AT timestamp
+ON COMPLETION PRESERVE
+DO
+statements
+
+
+(ii) Recrring Event
+
+-Method 1
+CREATE EVENT eventname
+ON SCHEDUALE AT EVERY INTERVAL
+STARTS timestamp
+DO
+statements
+
+-Method 2
+CREATE EVENT eventname
+ON SCHEDUALE AT EVERY INTERVAL
+STARTS timestamp
+ENDS timestamp
+DO
+statements
+
+-------------------------------------------------------
+
+=>(i) One Time Event 
+
+CREATE TABLE IF NOT EXISTS vipcustomers(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	email VARCHAR(50) NOT NULL UNIQUE,
+	emailverify INT
+);
+
+DESC vipcustomers;
+
+INSERT INTO vipcustomers(name,email,emailverify)
+VALUES ('aung aung','aungaung@gmail.com',1),
+('zaw zaw','zawzaw@gmail.com',1),
+('may zin','mayzin@gmail.com',1),
+('su su','susu@gmail.com',1),
+('yamin','yamin@gmail.com',1);
+
+
+INSERT INTO vipcustomers(name,email)
+VALUES ('hla hla','hlahla@gmail.com'),
+('thaw thaw','thawthaw@gmail.com');
+
+SELECT * FROM vipcustomers;
+
+
+CREATE EVENT vipcustomers_ev
+ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 30 SECOND    (after 30s this event will drop too.)
+DO 
+DELETE FROM vipcustomers WHERE emailverify IS NULL;
+
+
+=>List all Events
+SHOW EVENTS;
+
+SELECT * FROM vipcustomers;
+SHOW EVENTS;
+
+
+
+INSERT INTO vipcustomers(name,email)
+VALUES ('hla hla','hlahla@gmail.com'),
+('thaw thaw','thawthaw@gmail.com');
+
+SELECT * FROM vipcustomers;
+
+
+CREATE EVENT vipcustomers_ev
+ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 30 SECOND    
+ON COMPLETION PRESERVE										(after 30s this event wouldn't drop)
+DO 
+DELETE FROM vipcustomers WHERE emailverify IS NULL;
+
+SELECT * FROM vipcustomers;
+SHOW EVENTS;
+
+
+=>DROP Event
+DROP EVENT IF EXISTS vipcustomers_ev;
+
+
+--------------------------------------------------------------------------------------
+
+16EV

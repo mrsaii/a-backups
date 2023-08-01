@@ -1,0 +1,115 @@
+=>VARIABLES
+
+1.System Variables
+	(i) GLOBAL Variables
+	(ii) SESSION Variables
+2.User-Defined Variables
+3.Parameters and Local Variables
+
+
+@@ is use for - System Variable
+@ is use for - User Defined Variable
+
+-------------------------------------------------------
+
+=>System Variables
+
+SHOW VARIABLES;
+SELECT @@warning_count;   (just to show how to use this sql doesn't count the error cause it relode from beginning)
+SELECT @@error_count;
+
+SELECT * FROM persons;
+
+-------------------------------------------------------
+
+=>User Defined Variable
+
+Method 1 ( Using SELECT )
+
+SELECT @myfirstvar := 'Hello World';
+SELECT @myfirstvar;
+
+
+SELECT @myfirstvar := 'Save Myanmar';
+SELECT @myfirstvar;
+
+
+
+
+
+Method 2 ( Using SET )
+
+SET @mysecondvar = 'Data Land';
+SELECT @mysecondvar;
+
+SET @mysecondvar = 'Hello Thailand';
+SElECT @mysecondvar;
+
+
+
+
+SELECT @num1 := 10;
+SELECT @num2 := 20;
+SELECT @num1;
+SELECT @num2;
+
+SELECT @num1 := 10;
+SELECT @num2 := 20;
+SELECT @num1+@num2;
+
+SELECT @num1 := '10';
+SELECT @num2 := '20';
+SELECT @num1+@num2;
+
+
+SELECT @num1 := 10;
+SELECT @num2 := 20;
+SELECT @num3 :='30';
+SELECT @num4 :='40';
+
+SELECT @num1,@num2,@num3,@num4;
+SELECT @num3*@num4;
+
+
+
+SELECT @num1 := 10;
+SELECT @num2 := 20;
+SELECT @num3 := 30;
+SELECT @num4 := 40;
+SELECT @num1 as numberone,@num2 as numbertwo;
+
+SELECT @num1 := 10;
+SELECT @num2 := 20;
+SELECT @num3 := 30;
+SELECT @num4 := 40;
+SELECT @num1 as numberone,@num2 as numbertwo,@num3,@num4;
+
+
+SELECT @num1 := 10;
+SELECT @num2 := 20;
+SELECT @num3 := 30;
+SELECT @num4 := 40;
+SELECT @num1 as numberone,@num2 as numbertwo,@num3+@num4;
+
+
+SELECT @num1 := 10;
+SELECT @num2 := 20;
+SELECT @num3 := 30;
+SELECT @num4 := 40;
+SELECT @num1 as numberone,@num2 AS numbertwo,@num5 := @num3+@num4 AS number5;
+
+
+SELECT * FROM customers;
+
+SELECT id,firstname,lastname,age,city FROM customers
+WHERE age > 20;
+
+
+SELECT @num2 := 20;
+SELECT id,firstname,lastname,age,city FROM customers
+WHERE age > @num2;
+
+
+
+
+

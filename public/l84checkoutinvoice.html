@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Check Out Invoice</title>
+   <link href="./tailwind.css" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-stone-100">
+
+    
+    <div class="h-screen flex justify-center items-center">
+
+        <div class="w-[700px] bg-[#f4f4f4] rounded-xl overflow-hidden p-5">
+
+            <div class="max-w-[360px] mx-auto">
+
+                <div class="bg-white shadow-xl rounded-lg mt-9">
+
+                    <!-- start shop name and inv info  -->
+                    <div class="bg-stone-300 grid text-center p-5">   
+                        <img src="./img/logo/coffee.png" class="w-40 justify-self-center" alt="logo"/>
+                        <h3 class="text-xl font-bold text-grey-900 mb-1">We Love Cafe Land</h3>
+                        <div class="text-sm font-medium text-gray-500">Invoice No. #000123</div>
+                        <div class="text-sm text-gray-500">Invoice Date 15 June 2023<div>
+                    </div>
+                    <!-- start shop name and inv info  -->
+
+                    <div class="flex justify-between">
+                        <div class="w-1/12 h-1 bg-gray-900 opacity-25"></div>
+                        <div class="w-1/12 h-1 bg-gray-900 opacity-25"></div>
+                        <div class="w-1/12 h-1 bg-gray-900 opacity-25"></div>
+                        <div class="w-1/12 h-1 bg-gray-900 opacity-25"></div>
+                        <div class="w-1/12 h-1 bg-gray-900 opacity-25"></div>
+                        <div class="w-1/12 h-1 bg-gray-900 opacity-25"></div>
+                    </div>
+
+
+                    <div class="bg-stone-200 text-center px-5 py-6">
+
+                        <div class="text-sm mb-6">Grand Total : <strong class="font-semibold">$25.00</strong></div>
+
+                        <form action="" method="">
+
+                            <div class="flex shadow-md rounded">
+
+                                <div>
+                                    <input type="text" name="cardnumber" id="cardnumber" class="w-full text-sm text-gray-800 bg-white rounded-0 leading-5 placeholder-gray-400 border border-transparent focus:border-indigo-300 focus:outline-0  px-3 py-2" placeholder="Card Number" />
+                                </div>
+    
+                                <div class="w-[90px]">
+                                    <input type="text" name="cardnumber" id="cardnumber" class="w-full text-sm text-gray-800 bg-white rounded-0 leading-5 placeholder-gray-400 border border-transparent focus:border-indigo-300 focus:outline-0  px-3 py-2"  placeholder="MM/YY" />
+                                </div>
+    
+                                <div class="w-[70px]">
+                                    <input type="text" name="cardnumber" id="cardnumber" class="w-full text-sm text-gray-800 bg-white rounded-0 leading-5 placeholder-gray-400 border border-transparent focus:border-indigo-300 focus:outline-0  px-3 py-2"  placeholder="CVC" />
+                                </div>
+
+                            </div>
+
+                            <button type="button" class="w-full bg-violet-700 text-white font-semibold text-sm rounded border shadow transition duration-150 ease-in-out hover:bg-violet-900 px-3 py-2">Pay Now</button>
+
+                        </form>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    
+</body>
+</html>

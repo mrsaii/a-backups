@@ -1,0 +1,74 @@
+mkdir lesson6
+cd lesson6
+git init
+
+touch file1.txt
+touch file2.txt
+
+vim file1.txt
+edit:
+this is post one
+this is post two
+this is post three
+
+esc :wq
+
+
+git status
+
+git add * 
+git commit -m "added file 1 2"
+
+git branch 
+ls 
+cat file1.txt
+
+git branch new-feature
+
+git checkout new-feature
+git branch
+
+touch file3.txt
+touch file4.txt
+
+
+vim file3.txt
+edit:
+this is comment one
+this is comment two
+this is comment three
+
+esc :wq
+
+
+vim file3.txt
+edit:
+this is react one
+this is react two
+this is react three
+
+esc :wq
+
+
+
+vim file3.txt
+edit:
+this is post four
+this is post five
+this is post six
+
+esc :wq
+
+
+
+git status
+git diff
+git status -s
+git add *
+git status
+git status -s
+git commit -m "M file1 A file 3 4"
+git status
+
+git diff master new-feature
+git diff new-feature master

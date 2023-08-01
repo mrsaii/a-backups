@@ -1,0 +1,198 @@
+mkdir lesson11
+cd lesson11 
+
+git init 
+
+touch file1.txt
+touch file2.txt 
+
+vim file1.txt
+edit : write down 
+1.this is the first line
+2.this is the second line
+
+vim file2.txt 
+edit : write down 
+1.this is the first comment
+2.this is the second comment
+
+git status 
+git status -s 
+
+git add .
+git commint -m "A file 1 2"
+ls 
+
+
+git checkout -b new-feature
+git branch
+
+
+touch file3.txt
+touch file4.txt 
+
+vim file3.txt
+edit : write down 
+1.this is the first post
+2.this is the second post
+
+vim file4.txt 
+edit : write down 
+1.this is the first expression
+2.this is the second expression
+
+git status 
+git status -s 
+
+git add .
+git commint -m "A file 3 4"
+ls
+
+
+git checkout main 
+git branch 
+ls 
+
+
+git merge new-feature   //(nf ထဲကဖိုင်ကို main ထဲထည့်)
+git branch 
+ls
+
+
+git checkout new-feature
+git branch
+ls 
+
+
+vim file1.txt
+3.this is third line 
+4.this is fourth line 
+
+git status 
+git status -s 
+
+git add .
+git commit -m "M f1"
+ls
+
+git branch 
+cat file1.txt 
+
+git checkout main 
+git branch
+ls 
+cat file1.txt
+
+
+git rebase new-feature 
+
+cat file1.txt
+
+
+vim file3.txt
+edit : write down 
+3.this is the third post
+4.this is the fourth post
+
+git status
+git status -s 
+
+git add *
+git commit -m "M f3"
+git status 
+ls 
+
+cat file3.txt
+
+git checkout new-feature 
+ls 
+cat file3.txt
+
+
+vim file2.txt 
+edit : write down 
+3.this is the third comment
+4.this is the fourth comment
+
+cat file2.txt 
+cat file3.txt 
+
+git status 
+git add * 
+git commit -m "M f2"
+git status 
+ls 
+
+git checkout main 
+ls 
+cat file2.txt
+cat file3.txt
+
+
+git checkout new-feature 
+ls
+cat file3.txt 
+cat file2.txt 
+
+
+vim file2.txt 
+edit : write down 
+5.this is the fifth comment
+6.this is the sixth comment
+
+
+touch file5.txt 
+ 
+ vim file5.txt 
+edit : write down 
+1.this is the fitst article
+
+
+vim file3.txt
+edit : write down 
+7.this is the seventh post
+8.this is the eighth post
+
+
+ls 
+cat file2.txt 
+cat file3.txt
+cat file5.txt 
+
+git status
+git add .
+git commit -m "M f2 f3 A f5"
+git status 
+ls
+
+
+git checkout main
+
+
+git rebase new-feature
+
+git branch 
+
+cat file2.txt
+cat file3.txt
+
+vim file3.txt 
+:wq
+
+cat file3.txt
+
+git status
+git add .
+git commit -m file3.txt 
+
+
+git rebase --continue
+git branch 
+
+git rebase --skip
+git branch
+
+
+
+
+

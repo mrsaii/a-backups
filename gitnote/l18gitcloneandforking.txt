@@ -1,0 +1,198 @@
+mkdir githublesson2 
+
+
+git init 
+git status 
+git remote add origin git@github.com:dominikkkke/githublesson2.git 
+git add index.html
+git status 
+git commit -m "A index.html" 
+git push -u origin main 
+
+
+=> Fork 
+domi > dlt 
+go to repository 
+click > Add file > Create new file > cancle change 
+
+
+=> Delete Fork Repository 
+domi > repository > settings > Danger > Delete Repository 
+
+
+=>Inviting Collaborators 
+domi account > githublesson2 > settings > collaborators > Add people , (...) name u want to add 
+
+
+=> Join/Accept Invitation 
+mrsaii account > profile > your organizations > join > Accept invitation 
+
+
+
+=Add New File from PC 
+file0.txt 
+write down = Hello i am file0.
+
+
+git status 
+git add file0.txt 
+git commit -m "A file0 from domi by pc" 
+git push -u origin main 
+
+=Update file0 from pc 
+domi account 
+file0.txt 
+wirte down = this is new post 1 
+
+git status 
+git add file0.txt 
+git commit -m "M file0 from domi by pc" 
+git push -u origin main 
+
+
+
+=> Add new file by your Collaborators 
+mrsaii account > githublesson2 from website 
+click "Add file > create new file" 
+file name "file1"
+write down = Hello i am file1 created by mrsaii 
+click "Commit directly...main" > Commit Changes
+
+=>Pull 
+domi account by pc 
+git status 
+git pull origin 
+*you will see new file1 downloaded from remote repository to local repository 
+
+
+
+
+mkdir githublesson3
+
+
+git init 
+git status 
+git remote add origin git@github.com:dominikkkke/githublesson3.git 
+git add index.html
+git status 
+git commit -m "A index.html" 
+git push -u origin main 
+
+
+
+
+=> Fork 
+mrsaii account > domi account > githublesson3 > Fork > Create Fork 
+
+
+=> Create 
+mrsai account > githublesson3 
+add file > create new file > file1.txt 
+write down : hello i am file1 created by mrsai 
+click commit changes 
+Title Commit = A file1 from web by mrsai
+Description = i created new file1 from website 
+click "Commit directly... main branch" > Commit changes 
+
+=> Edit 
+mrsai account > githublesson3 
+click index.html
+edit : This is lesson 1
+click commit changes 
+Title Commit = M title from web by mrsai
+Description = 
+click "Propose changes"
+
+
+=> Create Pull Request from Fork User to Repository Owner 
+
+
+
+
+=> Create 
+mrsai account > githublesson3  from website
+add file > create new file > file2mrsai.txt 
+write down : hello i am file2 created by mrsai 
+click commit changes 
+Title Commit = A file2 from web by mrsai
+Description = i created new file2 from website 
+click "Commit directly... main branch" > Commit changes 
+
+
+
+
+touch file0.txt 
+
+vim file0.txt 
+
+write down 
+1.this is the first line 
+2.this is the second line 
+
+cat file0.txt (or) more file0.txt 
+
+git add file0.txt 
+git commit -m "file 0 added from domi terminal"
+git push -u origin main
+
+
+mrsaii account > domi account > githublesson4 > Fork > Create Fork 
+
+
+=> Create 
+mrsai account > githublesson4 from website
+add file > create new file > file1.txt 
+write down : hello i am file1 created by mrsai 
+click commit changes 
+Title Commit = A file1 from web by mrsai
+Description = i created new file1 from website 
+click "Create a new branch for this commit..." > "kotha_css1" > Commit changes 
+
+
+=Create Pull request from frok user 
+mrsai > githublesson4 from website 
+click ppull request tab > compare & requset 
+click "Create Pull Requset"
+Title : Hay Owner !! i create new file and edited index file please check 
+click "Create Pull Requset"
+
+domi > edit from terminal file1.txt
+
+git pull origin main
+
+
+
+=> Create 
+mrsai account > githublesson4 from website
+add file > create new file > file2.js 
+write down : hello i am file1 created by mrsai 
+click commit changes 
+Title Commit = A file1 from web by mrsai
+Description = i created new file1 from website 
+click "Create a new branch for this commit..." > "kotha_css1" > Commit changes 
+
+:Note :: but branch can't be the same (it'll auto change to ->  kotha_css1-1)
+
+=Create Pull request from frok user 
+mrsai > githublesson4 from website 
+click ppull request tab > compare & requset 
+click "Create Pull Requset"
+Title : Hay Owner !! i create new file and edited index file please check 
+click "Create Pull Requset"
+
+
+domi > edit from web to file2.js 
+
+git pull origin main
+
+
+=>Delete/Restore Branch in pull request 
+
+kotha > dlt > githublesson4 from website 
+pull request > closed > choosed > choose title > click "Delete btanch"
+pull request > closed > choosed > choose title > click "Restore btanch"
+
+
+----------------------------------------------------------------------
+
+

@@ -1,0 +1,129 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(Multi Trigger - Trigger to Trigger)
+=>BEFORE UPDATE (FOLLOWS)
+
+CREATE TABLE IF NOT EXISTS salarydiffllogs(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	diffamount DECIMAL(10,2) NOT NULL,
+	staff_id INT NOT NULL,
+	updatedby VARCHAR(50) NOT NULL,
+	FORGINE KEY(staff_id) REFERENCES staff(id) ON UPDATE CASCADE ON DELETE CASCADE
+
+);
+
+
+DESC salarydifflogs;
+
+DELIMITER $$
+
+
+CREATE TRIGGER staffsalarydiff_bfuf
+	BEFORE UPDATE ON staffs FOR EACH ROW
+	FOLLOWS staffsalary_bfu
+BEGIN 
+
+	DECLARE oldsalary INT;
+	DECLARE newsalary INT;
+	DECLARE getdiff INT;
+	DECLARE dbuser VARCHAR(50);
+	SELECT USER() INTO dbuser;
+	SET @oldsalary := OLD.salary;
+	SET @newsalary := NEW.salary;
+	SET getdiff = @newsalary - @oldsalary;
+
+	IF OLD.salary <> NEW.salary THEN
+		INSERT INTO salarydifflogs(diffamount,staff_id,updatedby)
+		VALUE(getdiff,OLD.id,USER())
+	END IF;
+
+END;$$
+
+DELIMITER;
+
+
+
+
+
+
+
+--------------------------------------------------------
+
+(Multi Trigger = Trigger to Trigger)
+=> BEFORE UPDATE (PRECEDES)
+
+CREATE TABLE IF NOT EXISTS paydifflogs(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	diffamount DECIMAL(10,2) NOT NULL,
+	staff_id INT NOT NULL,
+	updatedby VARCHAR(50) NOT NULL,
+	FORGINE KEY(staff_id) REFERENCES staff(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+DESC paydifflogs;
+
+DELIMITER $$
+
+CREATE TRIGGER staffsalarydiff_bufp
+	BEFORE UPDATE ON staffs FOR EACH ROW
+	PRECEDES staffsalary_buf
+BEGIN
+
+	SET @oldsalary = OLD.salart,
+	@newsalary = NEW.salary,
+	@getdiff = @newsalary - @oldsalary;
+
+	IF OLD.salary <> NEW.salary THEN
+		INSERT INTO paydifflogs(diffamount,staff_id,updateby)
+		VALUE (@getdiff,OLD.id,USER());
+	END IF;
+
+END;$$
+
+DELIMITER ;
+
+
+SHOW TRIGGER;
+
+
+UPDATE staffs SET salary = 300000 WHERE id = 4;
+SELECT * FROM staffs;
+SELECT * FROM salarylogs;
+SELECT * FROM salarydifflogs;
+SELECT * FROM paydifflogs;
+
+INSERT INTO staffs(name,age,salary)
+VALUES('thura',22,300000);
+SELECT * FROM staffs;
+SELECT * FROM salarylogs;
+SELECT * FROM salarydifflogs;
+SELECT * FROM paydifflogs;
+
+DELETE FROM staffs WHERE id = 5;
+SELECT * FROM staffs;
+SELECT * FROM salarylogs;
+SELECT * FROM salarydifflogs;
+SELECT * FROM paydifflogs;

@@ -1,0 +1,25 @@
+=>Show Databases;
+SHOW DATABASES;
+
+=>Create Database
+CREATE DATABASE wdf8086;
+
+=>Delete Database
+DROP DATABASE wdf8086;
+
+=>Choose Database
+USE wdf8086;
+
+
+=About Database Naming
+
+*CAN CREATE
+Create Database book_shop;
+Create Database SchoolApp;
+Create Database bookingsystem;
+
+*CAN'T CREATE 
+Create Database My App;
+Create Database My$#App;
+
+--------------------------------------------

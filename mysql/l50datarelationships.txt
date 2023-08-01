@@ -1,0 +1,64 @@
+=>Data Relationships;
+(i) ONE to ONE Relationship (1:1)
+(ii) ONE to MANY Relationship (1:n)
+(iii) MANY to MANY Relationship (n:n)
+
+
+students 1:1 stuentsinfos
+teachers 1:n classes 
+enrollments n:n
+reviews n:n
+
+
+
+
+DLT Co.,Ltd 
+
+=>students 
+id (pk)
+regcode
+firstname 
+lastname 
+gender
+dob 
+email 
+password
+created_at
+upated_at
+
+
+=>studentsinfos 
+id 
+coverphoto
+profilephpto
+phone
+address
+student_id (student_pk)fk
+
+
+=>subjects 
+id 
+img
+course 
+subjecttype 
+content
+requirement
+
+
+=>techers
+id(pk)
+name 
+phone 
+email 
+
+
+=>classes
+
+
+
+
+
+
+
+
+15PP

@@ -1,0 +1,345 @@
+=>Date Types ( Base on Version 8.0 )
+
+*Date Data Types ( types )
+
+Date Types						Description
+
+1. DATE 						A date. format : YYYY-MM-DD. The supported range is from '1000-01-01 to 9999-12-31'.
+2. DATETIME 					A date and time combination. Format : YYYY-MM-DD hh:mm:ss.
+ The supported range is from '1000-01-01 00:00:00 to 9999-12-31 23:59:59'
+3. TIMESTAMP  					A timestamp. Format : YYYY-MM-DD hh:mm:ss. (current timestamp)
+4. TIME   						A time. Format : hh:mm:ss
+5. YEAR   						A year with four-digit format.
+
+
+-------------------------------------------------
+
+Eg : Get current date (2023-01-01)
+SELECT CURRENT_DATE();
+SELECT CURDATE();
+
+Eg : Get current time (07:00:00)
+SELECT CURRENT_TIME();
+SELECT CURTIME();
+
+Eg  : Get current datetime (2023-01-01 07:00:00)
+SELECT NOW();
+SELECT CURRENT_TIMESTAMP();
+SELECT CURRENT_TIMESTAMP;
+SELECT SYSDATE();
+
+
+=> INTERVAL
+ *result 2023-01-01 08:03:37 2022-01-01 08:03:37
+SELECT NOW(), NOW() - INTERVAL 1 YEAR;
+SELECT NOW() - INTERVAL 2 YEAR;  (*we use this method in realworld other are example)
+SELECT NOW(), NOW() - INTERVAL 2 YEAR;
+
+
+*result 2023-01-01 08:07:48 2022-12-01 08:07:48
+SELECT NOW(), NOW() - INTERVAL 1 MONTH;
+SELECT NOW(), NOW() - INTERVAL 12 MONTH;
+
+*result 2023-01-01 08:11:19 2022-12-25 08:11:19
+SELECT NOW(), NOW() - INTERVAL 1 WEEK;
+
+
+*result 2023-01-01 08:14:01 2022-12-31 08:14:01
+SELECT NOW(), NOW() - INTERVAL 1 DAY;
+
+
+*result 2023-01-01 08:16:31 2023-01-01 07:16:31
+SELECT NOW(), NOW() - INTERVAL 1 HOUR;
+
+*result 2023-01-01 08:16:28 2023-01-01 07:15:28
+SELECT NOW(), NOW() - INTERVAL 1 MINUTE;
+
+
+*result 2023-01-01 08:16:20 2023-01-01 07:16:19
+SELECT NOW(), NOW() - INTERVAL 1 SECOND;
+
+
+*result 2023-01-01 08:16:20 2023-01-01 07:16:19.99999
+SELECT NOW(), NOW() - INTERVAL 1 MICROSECOND;
+
+-------------------------------------------------------------
+
+=> LAST_DAY();
+
+*result 2023-01-31
+SELECT LAST_DAY(NOW());
+SELECT LAST_DAY(CURRENT_DATE());
+SELECT LAST_DAY(CURDATE());
+SELECT LAST_DAY(CURRENT_TIMESTAMP());
+
+=>DAY()
+*Get the last day of this month by day
+*result 31
+SELECT DAY(LAST_DAY(NOW()));
+SELECT DAY(LAST_DAY(CURRENT_DATE()));
+SELECT DAY(LAST_DAY(CURDATE()));
+SELECT DAY(LAST_DAY(CURRENT_TIMESTAMP()));
+
+*result 31
+SELECT DAY(LAST_DAY(NOW() -1));
+
+*result 30
+SELECT DAY(LAST_DAY(NOW())-1);
+
+
+
+*Get the last day of the Previous Month
+SELECT NOW() - INTERVAL 1 MONTH;
+SELECT LAST_DAY(NOW() - INTERVAL 1 MONTH);
+SELECT LAST_DAY(NOW() - INTERVAL 2 MONTH);
+SELECT LAST_DAY(NOW() - INTERVAL 3 MONTH);
+SELECT LAST_DAY(CURDATE() - INTERVAL 1 MONTH);
+SELECT LAST_DAY(CURRENT_DATE() - INTERVAL 1 MONTH);
+SELECT LAST_DAY(CURRENT_TIMESTAMP - INTERVAL 1 MONTH);
+
+
+*Get the last day of the Next Month
+SELECT NOW() + INTERVAL 1 MONTH;
+SELECT LAST_DAY(NOW() + INTERVAL 1 MONTH);
+SELECT LAST_DAY(NOW() + INTERVAL 2 MONTH);
+SELECT LAST_DAY(NOW() + INTERVAL 3 MONTH);
+SELECT LAST_DAY(CURDATE() + INTERVAL 1 MONTH);
+SELECT LAST_DAY(CURRENT_DATE() + INTERVAL 1 MONTH);
+SELECT LAST_DAY(CURRENT_TIMESTAMP + INTERVAL 1 MONTH);
+
+
+*Get the first day of the Previous Month
+DATE FORMAT(date,format)
+SELECT DATE_FORMAT(NOW() - INTERVAL 1 MONTH,'%Y-%m-01');
+SELECT DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH,'%Y-%m-01');
+SELECT DATE_FORMAT(CURRENT_DATE() - INTERVAL 1 MONTH,'%Y-%m-01');
+SELECT DATE_FORMAT(CURRENT_TIMESTAMP - INTERVAL 1 MONTH,'%Y-%m-01');
+
+SELECT DATE_FORMAT(NOW() - INTERVAL 2 MONTH,'%Y-%m-01');
+SELECT DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH,'%Y-%m-01');
+SELECT DATE_FORMAT(CURRENT_DATE() - INTERVAL 2 MONTH,'%Y-%m-01');
+SELECT DATE_FORMAT(CURRENT_TIMESTAMP - INTERVAL 2 MONTH,'%Y-%m-01');
+
+
+*Get the first day of the Next Month
+DATE FORMAT(date,format)
+SELECT DATE_FORMAT(NOW() + INTERVAL 1 MONTH,'%Y-%m-01');
+SELECT DATE_FORMAT(CURDATE() + INTERVAL 1 MONTH,'%Y-%m-01');
+SELECT DATE_FORMAT(CURRENT_DATE() + INTERVAL 1 MONTH,'%Y-%m-01');
+SELECT DATE_FORMAT(CURRENT_TIMESTAMP + INTERVAL 1 MONTH,'%Y-%m-01');
+
+
+*Get the same date of the Previous Month
+SELECT NOW() - INTERVAL 1 MONTH;
+SELECT DATE_FORMAT(NOW() - INTERVAL 1 MONTH,'%Y-%m-%d');  //2022-12-15
+SELECT DATE_FORMAT(NOW() - INTERVAL 1 MONTH,'%Y-%m-%D');  //2022-12-15th
+SELECT DATE_FORMAT(NOW() - INTERVAL 1 MONTH,'%y-%m-%d');  //22-12-15
+SELECT DATE_FORMAT(NOW() - INTERVAL 1 MONTH,'%Y-%M-%D');  //2022-December-15th
+
+
+*Get the first day of the Current Month
+SELECT DATE_FORMAT(CURDATE(),'%Y-%m-01');
+
+SELECT LAST_DAY(NOW()); //2023-01-31
+SELECT DAY(LAST_DAY(NOW())); //31
+
+                 2023-01-31             31                      -1 DAY
+SELECT DATE_SUB(LAST_DAY(NOW()),INTERVAL DAY(LAST_DAY(NOW())) - 1 DAY);  //2023-01-01
+SELECT SUBDATE(LAST_DAY(NOW()),INTERVAL DAY(LAST_DAY(NOW())) - 1 DAY);  //2023-01-01
+
+
+---------------------------------------------------------------------
+
+=Exercise
+
+CREATE TABLE IF NOT EXISTS students(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100),
+    birthdate DATE,
+    birthtime TIME,
+    year YEAR,
+    city VARCHAR(100),
+    PRIMARY KEY(id)
+);
+
+DESC students;
+
+
+INSERT INTO students(name,birthdate,birthtime,year,city)
+VALUES('aung aung','2000-02-20','10:12:59','2000','mawlamyine'),
+('tar gyi','2001-03-10','10:12:59','2001','mawlamyine'),
+('kyaw kyaw','2002-04-30','12:12:59','2002','bago'),
+('zaw zaw','2003-06-15','11:12:59','2003','yangon'),
+('su su','2005-05-20','9:12:59','2005','mandalay'),
+('hla hla','2000-04-20','10:11:59','2000','yangon');
+
+SELECT * FROM students;
+SELECT name,birthdate FROM students;
+SELECT name,birthdate,DAY(birthdate) FROM students;
+SELECT name,birthdate,DAYNAME(birthdate) FROM students;
+Note: 1=sunday, 2=monday, 3=tuesday, 4=wednesday, 5=thursday, 6=friday, 7=saturday
+SELECT name,birthdate,DAYNAME(birthdate),DAYOFWEEK(birthdate) FROM students;
+SELECT name,birthdate,DAYOFYEAR(birthdate) FROM students;
+
+SELECT name,birthdate,MONTH(birthdate) FROM students;
+SELECT name,birthdate,MONTHNAME(birthdate) FROM students;
+
+SELECT name,birthdate,YEAR(bitthdate) FROM students;
+
+SELECT name,birthtime,HOUR(birthtime) FROM students;
+SELECT name,birthtime,MINUTE(birthtime) FROM students;
+SELECT name,birthtime,SECOND(birthtime) FROM students;
+
+SELECT name,birthdate,birthdate FROM students;
+
+
+Eg = 2023-January-21
+SELECT CONCAT(YEAR(birthdate),'-',MONTHNAME(birthdate),'-',DAY(birthdate)) FROM students;
+Eg = January 21 2023
+SELECT CONCAT(MONTHNAME(birthdate),' ',DAY(birthdate),' ',YEAR(birthdate)) FROM students;
+
+
+=> BETWEEN with AND
+SELECT name,birthdate FROM students;
+SELECT name,birthdate FROM students
+WHERE birthdate BETWEEN '2000-01-01' AND '2002-12-31';
+
+
+SELECT name,birthdate FROM students
+WHERE YEAR(birthdate) BETWEEN '2000' AND '2002';
+
+
+SELECT name,birthdate FROM students
+WHERE YEAR(birthdate) BETWEEN 2000 AND 2002;
+
+SELECT name,birthdate,city FROM students
+WHERE YEAR(birthdate) BETWEEN 2000 AND 2002 AND city IN('mawlamyine','bago');
+
+SELECT name,birthdate FROM students
+WHERE MONTH(birthdate) <= 4;
+
+
+----------------------------------------------------------------------
+
+
+=Exercise  DATE_ADD() / ADDDATE()
+
+
+SELECT * FROM students;
+
+SELECT name,birthdate FROM students;
+SELECT name,birthdate,birthdate + INTERVAL 1 MONTH FROM students;
+SELECT name,birthdate,(birthdate + INTERVAL 1 MONTH) FROM students;
+SELECT name,birthdate,(birthdate+INTERVAL 1 MONTH) FROM students;
+SELECT name,birthdate,DATE_ADD(birthdate,INTERVAL 1 MONTH) FROM students;
+SELECT name,birthdate,ADDDATE(birthdate,INTERVAL 1 MONTH) FROM students;
+
+SELECT name,birthdate,DATE_ADD(birthdate,InTERVAL 30 DAY) FROM students;
+
+1 QUARTER = 3 Months
+
+SELECT name,birthdate,DATE_ADD(birthdate,INTERVAL 1 QUARTER) FROM students;
+SELECT name,birthdate,DATE_ADD(birthdate,INTERVAL 2 QUARTER) FROM students;
+SELECT name,birthdate,DATE_ADD(birthdate,INTERVAL 3 QUARTER) FROM students;
+SELECT name,birthdate,DATE_ADD(birthdate,INTERVAL 4 QUARTER) FROM students;
+
+SELECT name,birthtime,DATE_ADD(birthtime,INTERVAL 20 SECOND) FROM students;
+
+SELECT name,birthdate,birthtime,(birthdate + INTERVAL 1 MONTH) FROM students;
+SELECT name,birthdate,birthtime,(birthdate + INTERVAL 1 MONTH + INTERVAL 10 HOUR) FROM students;
+SELECT name,birthdate,birthtime,(birthdate + INTERVAL 1 MONTH + INTERVAL 10 HOUR + INTERVAL 25 MINUTE) FROM students;
+SELECT name,birthdate,birthtime,(birthdate + INTERVAL 1 MONTH + INTERVAL 10 HOUR + INTERVAL 25 MINUTE + INTERVAL 50 SECOND) FROM students;
+SELECT name,CONCAT(birthdate,birthtime) AS 'Date Time',(birthdate + INTERVAL 1 MONTH + INTERVAL 10 HOUR + INTERVAL 25 MINUTE + INTERVAL 50 SECOND) AS 'New Date Time' FROM students;
+
+-------------------------------------------------------------------------------
+
+=Exercise TIMESTAMPS
+
+CREATE TABLE IF NOT EXISTS comments(
+    content VARCHAR(100),
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+DESC comments;
+SHOW TABLES;
+
+
+INSERT INTO comments(content)
+VALUES ('this is so funny'),
+('how sweet'),
+('how wonderful'),
+('pretty good');
+
+SELECT * FROM comments;
+
+INSERT INTO comments(content)
+VALUES ('hello, how are you'),
+('so nice'),
+('so sweet'),
+('it is amazing');
+
+INSERT INTO comments(content)
+VALUE ('why so cute'),
+('waiting next'),
+('so beautiful'),
+('wow');
+
+
+SELECT * FROM comments;
+
+------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS feedbacks(
+    content VARCHAR(100),
+    create_at TIMESTAMP DEFAULT NOW(),
+    update_at TIMESTAMP DEFAULT NOW()
+);
+
+
+DESC feedbacks;
+
+INSERT INTO feedbacks(content) VALUES('this is so funny'),('how sweet'),('how wonderful'),('pretty good');
+
+INSERT INTO feedbacks(content) VALUES('hello how are you'),('so nice'),('so sweet'),('it is amazing');
+
+INSERT INTO feedbacks(content) VALUES('why so cute'),('so nice'),('waiting next'),('so beautiful'),('wowww');
+
+SELECT * FROM feedbacks;
+
+
+UPDATE feedbacks SET content = "Bleh..Bleh..Bleh..."
+WHERE content = "how sweet";
+
+SELECT * FROM feedbacks;
+
+
+DROP TABLE IF EXISTS feedbacks;
+
+
+CREATE TABLE IF NOT EXISTS feedbacks(
+    content VARCHAR(100),
+    create_at TIMESTAMP DEFAULT NOW(),
+    update_at TIMESTAMP DEFAULT NOW() ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+DESC feedbacks;
+
+
+INSERT INTO feedbacks(content) VALUES('this is so funny'),('how sweet'),('how wonderful'),('pretty good');
+
+INSERT INTO feedbacks(content) VALUES('hello how are you'),('so nice'),('so sweet'),('it is amazing');
+
+INSERT INTO feedbacks(content) VALUES('why so cute'),('so nice'),('waiting next'),('so beautiful'),('wowww');
+
+SELECT * FROM feedbacks;
+
+UPDATE feedbacks SET content = "Bleh..Bleh..Bleh..."
+WHERE content = "how sweet";
+
+SELECT * FROM feedbacks;
+
+UPDATE feedbacks SET content = "good job"
+WHERE content = "Bleh..Bleh..Bleh...";
+
+SELECT * FROM feedbacks;

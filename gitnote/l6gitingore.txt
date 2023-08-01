@@ -1,0 +1,77 @@
+=> Git Ingore
+
+mkdir lesson4
+cd lesson4
+
+git init
+git status
+
+touch .gitignore
+
+
+for linux = vim .gitignore
+for window = .gitignore --edit
+
+
+
+
+# Compiled Source #
+#################################
+*.com
+*.class
+*.dll
+*.exe
+*.xlsx
+
+# Packages #
+*.zip
+*.rar
+*.tar
+*.7zip
+*.dmg
+*.iso
+
+# Images Sources #
+*.jpeg
+*.ico
+
+
+esc > :wq
+
+
+touch country.txt 
+touch phone.txt
+touch computer.txt
+touch user.jpg 
+touch favicon.ico
+touch application.exe
+touch database.xlsx
+touch plugin.zip
+
+
+git status
+
+ country.txt 
+ phone.txt
+ computer.txt
+ user.jpg 
+
+
+ for linux = ls -la
+ rm .gitignore
+
+
+ git status
+
+ country.txt 
+ phone.txt
+ computer.txt
+ user.jpg 
+ favicon.ico
+ application.exe
+ database.xlsx
+ plugin.zip
+
+
+
+12GI

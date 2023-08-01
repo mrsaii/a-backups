@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Overflow</title>
+	<link href="./tailwind.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-stone-900">
+
+    <nav class="bg-white shadow p-5 md:flex md:justify-between md:items-center">
+
+        <div class="flex justify-between items-center">
+            <span class="text-2xl cursor-pointer">
+                <img src="https://www.pngarts.com/files/3/Logo-PNG-Download-Image.png" class="w-12 inline" /> Nero Smart
+            </span>
+
+            <span class="md:hidden text-2xl cursor-pointer block mx-4">
+                <i class="fas fa-bars togglemenu" onclick="togglemenu(this)"></i>
+            </span>
+        </div>
+
+       <ul class="md:w-auto md:flex md:items-center md:static md:pl-0 md:opacity-100 w-full bg-white absolute left-0 pl-5 py-5 opacity-0 transition-all duration-500">
+            <li class="md:my-0 mx-5 my-6"><a href="javascript:void(0);" class="text-lg hover:text-violet-700 transition-all duration-500">HOME</a></li>
+            <li class="md:my-0 mx-5 my-6"><a href="javascript:void(0);" class="text-lg hover:text-violet-700 transition-all duration-500">NEWS</a></li>
+            <li class="md:my-0 mx-5 my-6"><a href="javascript:void(0);" class="text-lg hover:text-violet-700 transition-all duration-500">PAGES</a></li>
+            <li class="md:my-0 mx-5 my-6"><a href="javascript:void(0);" class="text-lg hover:text-violet-700 transition-all duration-500">ABOUT</a></li>
+            <li class="md:my-0 mx-5 my-6"><a href="javascript:void(0);" class="text-lg hover:text-violet-700 transition-all duration-500">CONTACT</a></li>
+            <li class="md:my-0 mx-5 my-6"><a href="javascript:void(0);" class="bg-violet-500 text-white px-6 py-2 transition-all duration-500 hover:bg-indigo-800">Sign UP</a></li>
+       </ul>
+
+
+    </nav>
+
+
+
+
+    
+
+<script type="text/javascript">
+
+    function togglemenu(ele){
+        // console.log(ele);
+        // console.log(ele.className);
+
+        const getul = document.querySelector('ul');
+
+        // if(ele.classList.contains("togglemenu")){
+        //     ele.classList.remove("togglemenu");
+        //     getul.classList.add("opacity-100");
+        // }else{
+        //     ele.classList.add("togglemenu");
+        //     getul.classList.remove("opacity-100");
+        // }
+
+
+        // Method 2
+
+        ele.classList.contains('togglemenu') ? (ele.classList.remove("togglemenu"),getul.classList.add("opacity-100")):(ele.classList.add("togglemenu"),getul.classList.remove("opacity-100"));
+    }
+
+</script>
+
+</body>
+</html>
+
+
+
+

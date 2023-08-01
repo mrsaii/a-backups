@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Position</title>
+    <link href="./tailwind.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: silver;
+        }
+
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            color: #fff;
+        }
+
+        .div2{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>This is tailwind css using PostCSS</h1>
+
+    <div class="box">
+        <div class="div1 absolute z-10">DIV1</div>
+        <div class="div2 absolute z-50">DIV2</div>
+    </div>
+
+    <br/>
+
+    <div class="box relative">
+        <div class="div1">DIV1</div>
+        <div class="div2 absolute inset-0">DIV2</div>
+    </div>
+
+    <br/>
+
+    <div class="box">
+        <div class="div1">DIV1</div>
+        <div class="div2 absolute inset-x-0">DIV2</div>
+    </div>
+
+    <br/>
+
+    <div class="box relative">
+        <div class="div1">DIV1</div>
+        <div class="div2 absolute inset-y-0">DIV2</div>
+    </div>
+
+    <br/>
+
+    <div class="box">
+        <div class="div1">DIV1</div>
+        <div class="div2 absolute left-0">DIV2</div>
+    </div>
+
+    <br/>
+
+    <div class="box relative">
+        <div class="div1">DIV1</div>
+        <div class="div2 absolute top-0">DIV2</div>
+    </div>
+
+    <br/>
+
+    <div class="box relative">
+        <div class="div1">DIV1</div>
+        <div class="div2 absolute right-0">DIV2</div>
+    </div>
+
+    <br/>
+
+    <div class="box relative">
+        <div class="div1">DIV1</div>
+        <div class="div2 absolute top-5">DIV2</div>
+    </div>
+
+    <br/>
+
+
+    </body>
+</html>
+
+
+
+
+<!-- 
+relative      position:relative;
+static        position:static;
+absolute      position:absolute;
+fixed         position:fixed;
+sticky        position:sticky; 
+-->
+
+
+<!-- 
+z-0      z-idex:0;
+z-10     z-idex:10;
+z-20 
+z-30 
+z-40 
+z-50 
+z-auto 
+-->
+
+<!-- 
+inset-0         left:0;top:0;right:0;botton:0;
+iset-x-0 
+insety-0
+
+
+left-0          left:0;
+top-0 
+right-0
+bottom-0
+
+inset-px 
+inset-x-px 
+inset-y-px
+
+left-px 
+top-px 
+right-px 
+bottom-px 
+
+inset-0.5 
+inset-x-0.5 
+inset-y-0.5
+
+left-0.5 
+top-0.5 
+right-0.5 
+bottom-0.5  
+
+
+1 1.5 2 2.5 3 3.5
+4 5 6 7 8 9 11 12
+14 16 18 20
+24 28 32 36 40 44 48 52 56 60 64
+72 80
+96
+
+ -->
+
+

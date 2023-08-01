@@ -1,0 +1,72 @@
+
+
+
+
+
+=> Method 2 (EXPLICIT INNER JOIN)
+
+
+SELECT  * FROM buyers
+JOIN orders
+ 	ON buyers.id = orders.buyer_id;
+
+
+ SELECT * FROM buyers
+ JOIN orders
+ 	ON orders.buyer_id = buyers.id;
+
+
+ SELECT * FROM orders
+ JOIN buyers
+ 	ON orders.buyer_id = buyers.id;
+
+
+  SELECT * FROM orders
+ JOIN buyers
+ 	ON buyers.id = orders.buyer_id;
+
+
+ *Wrong =  ARBITRARY JOIN ( Don't do this, never and never)
+ SELECT * FROM buyers
+ JOIN orders
+ 	ON buyers.id = orders.id;
+
+
+
+ => Method 3
+
+
+SELECT  * FROM buyers
+INNER JOIN orders
+ 	ON buyers.id = orders.buyer_id;
+
+
+ SELECT * FROM buyers
+ INNER JOIN orders
+ 	ON orders.buyer_id = buyers.id;
+
+
+ SELECT * FROM orders
+ INNER JOIN buyers
+ 	ON orders.buyer_id = buyers.id;
+
+
+ SELECT * FROM orders
+ INNER JOIN buyers
+ 	ON buyers.id = orders.buyer_id;
+
+
+
+ -----------------------------------------
+
+SELECT firstname,lastname,orderdate,amount
+FROM buyers
+INNER JOIN orders
+ 	ON buyers.id = orders.buyer_id;
+
+
+
+SELECT firstname,lastname,orderdate,amount
+FROM buyers
+INNER JOIN orders
+	ON orders.buyer_id = buyers.id; 

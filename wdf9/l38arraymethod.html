@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Method</title>
+</head>
+<body>
+    
+
+
+
+
+
+    <script type="text/javascript">
+
+
+        
+
+
+
+        // splice (index,lenght)
+
+        const paints = ['green','empty','red','blue','pink'];
+
+        let colors = paints.splice(2,5);   
+ 
+        console.log(colors);  // ['red', 'blue', 'pink']
+
+
+        // concat()
+        const arr1 = ['aung aung','maung maung','tun tun','kyaw kyaw'];
+        const arr2 = ['su su','nu nu','yu yu','mu mu'];
+        const arr3 = [10,20,30,40];
+
+        console.log(arr1+arr2);  // aung aung,maung maung,tun tun,kyaw kyawsu su,nu nu,yu yu,mu mu
+        console.log(arr1.concat(arr2));  // (8) ['aung aung', 'maung maung', 'tun tun', 'kyaw kyaw', 'su su', 'nu nu', 'yu yu', 'mu mu']
+        console.log(arr3.concat(arr2));  // (8) [10, 20, 30, 40, 'su su', 'nu nu', 'yu yu', 'mu mu']
+
+        
+        // sort() & reverse() Array Sorting
+        const combinearrs = arr1.concat(arr2);
+        console.log(combinearrs);
+
+        // A to Z 
+        console.log(combinearrs.sort());
+
+        // Just Reverse 
+        console.log(combinearrs.reverse());
+        
+
+
+    </script>
+</body>
+</html>

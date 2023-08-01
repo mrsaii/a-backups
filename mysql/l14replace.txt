@@ -1,0 +1,67 @@
+=> REPLACE
+
+=Syntax
+
+SELECT REPLACE(original,ori part,new);
+
+---------------------------------------------------------------------
+
+=EXERCISE
+
+SELECT REPLACE('Hello World','Hell','Zer');
+
+
+*no action
+SELECT REPLACE('Hello World','hell','Zer');
+
+
+*no action
+SELECT REPlACE('Hello World','hello','Zer');
+
+
+SELECT REPLACE('Hello World','o','0');
+SELECT REPLACE('Hell0 World','0','*');
+SELECT REPlACE('Hello World','l','7');
+
+
+*Case Sensitive
+SELECT REPLACE('Hello World','0','5');
+
+SELECT REPLACE('coffee milk bread cheese',' ',' and ');
+
+-------------------------------------------------------
+
+SELECT * FROM persons;
+
+SELCET city FROM persons;
+
+SELECT REPLACE(city,'m','M') FROM persons;
+SELECT REPLACE(city,'m','M') AS capital FROM persons;
+SELECT REPLACE(city,'a','A') AS capital FROM persons;
+
+-------------------------------------------------------
+
+
+=> REPLACE() with SUBSTRING() and CONCAT()
+
+SELECT SUBSTRING(REPLACE(city,'m','M'),1,5) FROM persons;
+
+SELECT SUBSTRING(
+REPLACE(address,'n','N'),1,5) 
+FROM persons;
+
+
+SELECT CONCAT(SUBSTRING(REPLACE(address,'n','N'),1,10),'...') FROM persons;
+
+
+SELECT CONCAT(
+SUBSTR(REPLACE(address,'n','N'),1,10),'...') AS street
+FROM persons;
+
+ 
+ SELECT CONCAT(
+SUBSTR(REPLACE(address,'n','N'),1,10),'...') AS 'short address'   (<....need single/double code for two words like this...>)
+FROM persons;
+
+
+

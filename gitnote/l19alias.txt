@@ -1,0 +1,43 @@
+=> Alias
+
+git status
+git config --global alias.st "status"
+git st 
+git status 
+git config --global alias.st 
+
+
+git branch
+git config --global alias.brh "branch"
+git brh 
+git branch 
+git config --global alias.brh 
+
+git commit -m ""
+git config --global alias.cm "commit"
+git cm 
+git config --global alias.cm
+
+
+=> in githublesson4 
+
+git st 
+git add * 
+git cm -m "A file3"
+git st 
+
+git push -u origin main 
+
+
+git st 
+git add * 
+git cm -m "A file4"
+git st  
+
+git st 
+git add * 
+git cm -m "A file5"
+git st 
+
+
+30AL

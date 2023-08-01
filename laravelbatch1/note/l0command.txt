@@ -1,0 +1,69 @@
+=>Command 
+
+
+php artisan 
+
+=>Server run 
+php artisan serve 
+
+
+=> Check route list
+php artisan route:list   // a to z ASC 
+php artisan route:list -r   // z to a DESC
+
+
+=> Check route list by path 
+php artisan route:list --path=staff 
+php artisan route:list --path=staff -r
+php artisan route:list --path=student
+
+=> Check route list by method 
+php artisan route:list --method=get 
+php artisan route:list --method=get -r
+php artisan route:list --method=post
+
+
+
+
+=>Create New Table 
+php artisan make:migration create_students_table
+
+
+
+
+
+
+=>Migration
+
+=>tables to update db server 
+php artisan migrate
+
+
+=>List all files from database > migrations files 
+php artisan migrate:status
+
+=>Undo migration 
+php artisan migrate:rollback
+
+=>Check migration Status
+php artisan migrate:status
+
+
+=>Undo migration by step(selected table count to local)
+php artisan migrate:rollback --step=2
+
+=>Check before rollback  table list 
+php artisan migrate:rollback --pretend
+
+
+=>Delete all tables
+php artisan migrate:reset
+
+
+
+=>Rename Table  rename(from,to)
+php artisan make:migration rename_employees_to_customers_table --table=employees
+=>up 
+Schema::rename('employees','customers');
+=>down 
+Schema::rename('customers','employees');

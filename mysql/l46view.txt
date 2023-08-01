@@ -1,0 +1,276 @@
+=> VIEW
+
+=Syntax
+
+*CREAT
+
+CREAT VIEW viewname AS 
+--statemetns
+
+*READ
+SELECT columns FROM viewname;
+
+*UPDATE
+
+CREAT or REPLACE VIEW viewname AS
+---statements
+
+*DELETE
+
+DROP VIEW IF EXISTS viewname;
+
+--------------------------------------------------------------------------------------
+
+=EXERCISE 
+CREATE TABLE IF NOT EXISTS shoppers(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50)  NOT NULL,
+    phone VARCHAR(15) NOT NULL UNIQUE
+);
+
+DESC shoppers;
+SHOW INDEX FROM shoppers;
+
+INSERT INTO shoppers(name,phone)
+VALUES('su su','0911111'),
+('tun tun','0922222'),
+('aung aung','0933333');
+
+SELECT * FROM shoppers;
+
+CREATE TABLE IF NOT EXISTS products(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE,
+    price DECIMAL(10,2) NOT NULL
+);
+
+DESC products;
+SHOW INDEX FROM products;
+
+INSERT INTO products(name,price)
+VALUES('redbull',600),
+('deedo',400),
+('sponsor',500);
+
+SELECT * FROM products;
+
+CREATE TABLE IF NOT EXISTS checkouts(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    data TIMESTAMP DEFAULT NOW(),
+    product_id INT NOT NULL,
+    qty INT NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    payment ENUM('VISA','MPU','COD') NOT NULL,
+    shopper_id INT NOT NULL,
+    FOREIGN KEY(shopper_id) REFERENCES shoppers(id),
+    FOREIGN KEY(product_id) REFERENCES products(id)
+);
+
+DESC checkouts;
+SHOW INDEX FROM checkouts;
+
+INSERT INTO checkouts(product_id,qty,total,payment,shopper_id)
+VALUES(1,2,1200,3,1),
+(1,5,3000,1,2),
+(2,1,400,2,1),
+(3,2,1200,3,2),
+(2,3,600,1,3),
+(1,4,3200,2,3);
+
+SELECT * FROM shoppers;
+SELECT * FROM products;
+SELECT * FROM checkouts;
+
+--------------------------------------------------------------------------------------
+
+=> CREATE TABLE AS statement
+
+=Syntax:
+CREATE TABLE IF NOT EXISTS newtable AS
+SELECT expressions
+FROM existingtable
+WHERE conditions;
+
+CREATE TABLE IF NOT EXISTS checkoutsbycod AS
+SELECT * FROM checkouts
+WHERE payment = "COD";
+
+DESC checkoutsbycod;
+SELECT * FROM checkoutsbycod;
+
+CREATE TABLE IF NOT EXISTS checkoutsbympu AS 
+SELECT checkouts.id,checkouts.product_id,checkouts.total,checkouts.payment FROM checkouts
+WHERE checkouts.payment="MPU";
+
+DESC checkoutsbympu;
+SELECT * FROM checkoutsbympu;
+
+--------------------------------------------------------------------------------------
+
+SELECT checkouts.payment,SUM(checkouts.total) AS totalamount
+FROM checkouts
+GROUP BY checkouts.payment
+ORDER BY payment DESC;
+
+CREATE VIEW vw_paymentreports AS
+SELECT checkouts.payment,SUM(checkouts.total) AS totalamount
+FROM checkouts
+GROUP BY checkouts.payment
+ORDER BY payment DESC;
+
+=>List All tables
+SHOW TABLES;
+SHOW FULL TABLES;
+SHOW FULL TALBES WHERE TABLE_TYPE  LIKE 'BASE TABLE';
+SHOW FULL TALBES IN wdf8256 WHERE TABLE_TYPE  LIKE 'BASE TABLE';
+
+=>List All view
+SHOW FULL TALBES WHERE TABLE_TYPE  LIKE 'VIEW';
+SHOW FULL TALBES IN wdf8256 WHERE TABLE_TYPE  LIKE 'VIEW';
+
+
+SELECT * FROM vw_paymentreports;
+
+payment     totalamount
+COD         2400.00
+MPU         3600.00
+VISA        3600.00
+
+INSERT INTO checkouts(product_id,qty,total,payment,shopper_id)
+VALUE(3,3,1800,3,1);
+
+SELECT * FROM checkouts;
+SELECT * FROM vw_paymentreports;
+
+payment         totalamount
+COD             4200.00
+MPU             3600.00
+VISA            3600.00
+
+=> DROP VIEW
+DROP VIEW IF EXISTS vw_paymentreports;
+
+SELECT * FROM vw_paymentreports;
+SHOW FULL TALBES WHERE TABLE_TYPE  LIKE 'VIEW';
+
+
+--------------------------------------------------------------------------------------
+
+SELECT * FROM products;
+SELECT * FROM checkouts;
+
+SELECT productS.name,checkouts.qty,checkouts.total
+FROM checkouts
+INNER JOIN products
+ON checkouts.product_id = products.id;
+
+SELECT products.name,SUM(checkouts.qty) AS totalqty ,SUM(checkouts.total) AS totalamount
+FROM checkouts
+INNER JOIN products
+ON checkouts.product_id = products.id
+GROUP BY checkouts.product_id 
+ORDER BY totalamount DESC;
+
+CREATE VIEW vw_bigsales AS
+SELECT products.name,SUM(checkouts.qty) AS totalqty ,SUM(checkouts.total) AS totalamount
+FROM checkouts
+INNER JOIN products
+ON checkouts.product_id = products.id
+GROUP BY checkouts.product_id 
+ORDER BY totalamount DESC;
+
+SELECT * FROM vw_bigsales;
+SHOW  FULL TABLES WHERE TABLE_TYPE LIKE 'VIEW';
+
+--------------------------------------------------------------------------------------
+
+SELECT shoppers.name,checkouts.qty,checkouts.total
+FROM checkouts
+INNER JOIN shoppers
+ON checkouts.shopper_id = shoppers.id;
+
+SELECT shoppers.name,SUM(checkouts.qty) AS totalqty ,SUM(checkouts.total) AS totalamount
+FROM checkouts
+INNER JOIN shoppers
+ON checkouts.shopper_id = shoppers.id
+GROUP BY checkouts.shopper_id 
+ORDER BY totalamount DESC;
+
+CREATE VIEW vw_bigshoppers AS
+SELECT shoppers.name,SUM(checkouts.qty) AS totalqty ,SUM(checkouts.total) AS totalamount
+FROM checkouts
+INNER JOIN shoppers
+ON checkouts.shopper_id = shoppers.id
+GROUP BY checkouts.shopper_id 
+ORDER BY totalamount DESC;
+
+SELECT * FROM vw_bigshoppers;
+SHOW  FULL TABLES WHERE TABLE_TYPE LIKE 'VIEW';
+
+--------------------------------------------------------------------------------------
+
+
+SELECT shoppers.name,products.name AS item,checkouts.qty,checkouts.total,checkouts.payment
+FROM checkouts
+INNER JOIN products
+ON checkouts.product_id = products.id
+INNER JOIN shoppers
+ON checkouts.shopper_id = shoppers.id;
+
+CREATE VIEW vw_checkoutdetails AS
+SELECT shoppers.name,products.name AS item,checkouts.qty,checkouts.total,checkouts.payment
+FROM checkouts
+INNER JOIN products
+ON checkouts.product_id = products.id
+INNER JOIN shoppers
+ON checkouts.shopper_id = shoppers.id
+GROUP BY checkouts.shopper_id;
+
+SELECT * FROM vw_checkoutdetails;
+SHOW  FULL TABLES WHERE TABLE_TYPE LIKE 'VIEW';
+
+--------------------------------------------------------------------------------------
+
+SELECT shoppers.name AS Name,SUM(checkouts.total) AS totalamount
+FROM checkouts
+INNER JOIN products
+ON checkouts.product_id = products.id
+INNER JOIN shoppers
+ON checkouts.shopper_id = shoppers.id
+WHERE payment NOT IN('VISA','MPU')
+GROUP BY shoppers.id;
+
+CREATE VIEW vw_checkoutcod AS
+SELECT shoppers.name AS Name,SUM(checkouts.total) AS totalamount
+FROM checkouts
+INNER JOIN products
+ON checkouts.product_id = products.id
+INNER JOIN shoppers
+ON checkouts.shopper_id = shoppers.id
+WHERE payment NOT IN('VISA','MPU')
+GROUP BY shoppers.id;
+
+SELECT * FROM vw_checkoutcod;
+SHOW  FULL TABLES WHERE TABLE_TYPE LIKE 'VIEW';
+
+--------------------------------------------------------------------------------------
+
+SHOW  FULL TABLES WHERE TABLE_TYPE LIKE 'VIEW';
+
+SELECT * FROM vw_bgsales;
+SELECT * FROM vw_bgsshoppers;
+SELECT * FROM vw_checkoutcod;
+SELECT * FROM vw_checkoutdetails;
+
+
+
+
+SELECT * FROM vw_bgsales;
+DESC vw_bigsales;
+
+INSERT INTO vw_bigsales(name,totalqty,totalmaount)
+VALUE('rebull',10,1000);
+
+SELECT * FROM vw_bigsales;
+
+--------------------------------------------------------------------------------------

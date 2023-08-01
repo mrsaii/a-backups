@@ -1,0 +1,4 @@
+=>Public Data Passing 
+
+app > Providers > AppServiceProvider.php 
+

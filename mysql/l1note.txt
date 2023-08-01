@@ -1,0 +1,21 @@
+myanmar font-
+utf8_unicode_ci (or) utf8_general_ci
+
+table name ko a maye tan small letter and with plural 
+
+
+only number   >  INT
+text and number > VARCHAR
+many text > TEXT
+
+
+abccompanies
+employees
+id
+firstname
+lastname
+phone
+address
+
+27DB
+

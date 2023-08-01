@@ -1,0 +1,101 @@
+=>LIKE Operator
+
+=Syntax
+
+SELECT column1,column2,...
+FROM tablename
+WHERE column LIKE pattern;
+
+LIKE Operators' pattern (7 types)
+
+WHERE column LIKE 'a%'       		FIND any values that start with 'a'
+WHERE column LIKE '%a'  			FIND any values that end with 'a'
+WHERE column LIKE '%or%'			FIND any values that have 'or' in any position
+WHERE column LIKE '_r%'				FIND any values that have 'r' in the second position
+WHERE column LIKE 'a_%' 			FIND any values that have 'a' and at least 2 characters in length
+WHERE column LIKE 'a__%' 			FIND any values that have 'a' and at least 3 characters in length
+WHERE column LIKE 'a%o'				FIND any values that stat with 'a' and ending with 'o'
+
+-----------------------------------------------------------------	
+
+
+=EXERCISE 
+
+SELECT firstname,lastname,age,city FROM customers;
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE 'aung';
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE 'm%';
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE '%g';
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE '%n';
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE '%un';
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE '%zaw%';
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE '_a%';
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE 'a__%';
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE 'a%g';
+
+-------------------------------------------------------------
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE 'a__%';
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE 'a___%';
+
+SELECT firstname,lastname,age,city FROM customers
+WHERE firstname LIKE 'a____%';
+
+--------------------------------------------------------------
+
+=EXERCISE (LIKE '____')
+
+SELECT * FROM customers;
+
+SELECT * FROM customers
+WHERE amount LIKE '____';
+
+SELECT * FROM customers
+WHERE amount LIKE '_____';
+
+SELECT * FROM customers
+WHERE amount LIKE '______';
+
+
+
+
+=EXERCISE (LIKE '%') is anything
+
+SELECT *  FROM customers
+WHERE amount LIKE '%';
+
+*result =_facebook
+SELECT *  FROM customers
+WHERE firstname LIKE '\_%';
+
+*result =_face_book
+SELECT *  FROM customers
+WHERE firstname LIKE '%\_%';
+
+
+*result = 10%happy
+SELECT * FROM customers
+WHERE firstname LIKE '%\%%';
+
+-----------------------------------------------------
+

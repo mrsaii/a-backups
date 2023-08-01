@@ -1,0 +1,120 @@
+=>GROUP BY Clause 
+
+=Syntax 
+
+SELECT col1,col2,...
+FROM tablename
+WHERE  ...
+GROUP BY col1,col2,...;
+
+---------------------------------------
+
+=>GROUP BY vs DISTINCT 
+
+SELECT DISTINCT city FROM customers;
+SELECT city FROM customers GROUP BY city;
+
+
+SELECT DISTINCT age FROM customers;
+SELECT age FROM customers GROUP BY age;
+
+------------------------------------------
+
+=> GROUP BY Clause with COUNT()
+
+SELECT * FROM customers;
+SELECT COUNT(*),city FROM customers GROUP BY city;
+SELECT COUNT(*),age FROM customers GROUP BY age;
+
+SELECT COUNT(*),city
+FROM customers
+GROUP BY city
+ORDER BY city DESC;
+
+SELECT COUNT(*),age
+FROM customers
+GROUP BY age
+ORDER BY age ASC;
+
+-------------------------------------------
+
+=> GROUP BY Clause with MIN()/MAX();
+
+SELECT * FROM customers;
+SELECT COUNT(*),amount FROM customers GROUP BY amount;
+
+
+SELECT city FROM customers GROUP BY city;
+SELECT city,SUM(amount) FROM customers GROUP BY city;
+
+
+SELECT city,MIN(amount)
+FROM customers
+GROUP BY city;
+
+SELECT COUNT(*),city,MIN(amount)
+FROM customers 
+GROUP BY city;
+
+SELECT COUNT(*),city,MAX(amount)
+FROM customers 
+GROUP BY city;
+
+
+----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------
+
+=>GROUP BY Clause with AVG()
+
+SELECT city,AVG(amount)
+FROM customers
+GROUP BY city;
+
+-----------------------------------
+
+=> HAVING Clause 
+
+=Syntax 
+
+SELECT col1,col2,col3,..
+FROM tablename
+GROUP BY col1,..
+HAVING condition;
+
+------
+
+SELECT COUNT(*),city
+FROM customers
+GROUP BY city;
+
+
+SELECT COUNT(*),city
+FROM customers
+WHERE city LIKE "ma%"
+GROUP BY city;
+
+SELECT COUNT(*),city
+FROM customers
+GROUP BY city
+HAVING city LIKE "ma%";
+
+
+SELECT city,SUM(amount)
+FROM customers
+GROUP BY city;
+
+SELECT city,SUM(amount)
+FROM customers
+GROUP BY city
+HAVING SUM(amount) > 200000;

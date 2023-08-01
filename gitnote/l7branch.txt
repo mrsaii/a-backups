@@ -1,0 +1,77 @@
+=> Branch
+
+=> Create Branch
+= Syntax
+git branch branchname
+
+mkdir lesson5
+git init
+git status
+
+touch file1.txt
+git status
+git add file1.txt
+git commit -m "added file1"
+
+
+git branch
+
+git branch bugfix
+git branch
+
+
+git branch dev
+git branch
+
+
+Note: -b = create new branch
+git checkout -b new-feature
+git branch
+
+
+=> Switch
+git checkout bugfix
+
+git checkout dev
+git branch
+git status
+
+
+=> Rename Branch
+git branch
+git branch -m my-feature
+git branch
+git checkout bugfix
+git branch -m bugerror
+git branch
+
+
+=> Delete Branch
+= Syntax
+git branch --delete branchname
+or 
+git branch -d branchname
+or 
+git branch -D branchname
+
+
+git branch 
+git branch --delete dev
+git branch
+git branch -d my-feature
+git checkout master
+git branch -D bugerror
+
+
+
+=Delet old Branch on remote
+
+git push -u origin --delete bugfix
+or 
+git push -u origin --d bugfix 
+or 
+git push -u origin -D bugfix 
+or 
+git push -u origin :bugfix
+
+

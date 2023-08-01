@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array</title>
+</head>
+<body>
+
+
+
+	<script type="text/javascript">
+
+		let arrgirls = new Array('su su','hla hla','lu lu');
+
+		console.log(arrgirls);
+		console.table(arrgirls);
+		console.log(arrgirls.length);
+
+		let arrboys = ['kyaw kyaw','zaw zaw','maung maung','naung naung',200];
+
+		console.log(arrboys);
+		console.table(arrboys);
+		console.log(arrboys.length);
+
+		console.log(arrboys[0]);
+		console.log(arrboys[2]);
+		console.log(typeof(arrboys[2]));
+		console.log(arrboys[4]);
+		console.log(typeof(arrboys[4]));
+
+
+		let y = ["hello",1550,true,undefined,null,new Date(),['red','green'],{firstname:'kyaw kyaw',city:'yangon'}];
+
+		console.log(y);
+		console.log(y[0]);
+		console.log(y[4]);
+		console.log(y[5]);
+		console.log(y[6][0]);
+		console.log(y[7].city);
+
+		let colors = ["red",'green','black'];
+			colors = ['rgba','cmyk','b&w'];
+		console.log(colors);
+
+
+		let paints = [];
+
+			paints[3] = "white";
+			paints[0] = "black";
+			paints[1] = "blue";
+			paints[2] = "pink";
+			paints[5] = "skyblue";
+			paints[9] = "violet";
+
+		console.log(paints);
+
+
+		let animals = ["cat","dog"];
+		animals[2] = "owl";
+		animals[5] = "fish";
+		animals[3] = "tiger";
+
+		console.log(animals);
+		console.log(animals[3]);
+		console.log(animals[4]);
+
+
+
+		// => Nested Arrary 
+
+		const nestarrs = [
+				['red','green','blue'],
+				['cmyk','rgba','b&w'],
+				['epson','canon',['laser','ink']]
+			];
+
+		console.log(nestarrs);
+		console.log(nestarrs[1][2]);
+		console.log(nestarrs[2][2][0]);
+
+
+
+	</script>
+</body>
+</html>
+
+
+<!-- 25TC -->

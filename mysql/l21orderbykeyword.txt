@@ -1,0 +1,35 @@
+=>ORDER BY Keyword (Sorting our results) 
+
+=Syntax
+
+SELECT column1,column2,column3....FROM tablename
+ORDER BY column ASC|DESC;
+
+-----------------------------
+
+SELECT * FROM customers;
+
+SELECT * FROM customers ORDER BY firstname ASC;  အနည်းများ
+
+SELECT * FROM customers ORDER BY firstname DESC;   အများကနေ အနည်း
+
+SELECT * FROM customers ORDER BY firstname;
+
+SELECT * FROM customers ORDER BY amount;
+
+SELECT * FROM customers ORDER BY amount DESC;
+
+SELECT id,firstname,lastname,amount,city FROM customers
+WHERE amount > 200000
+ORDER BY amount ASC;
+
+
+SELECT * FROM customers ORDER BY firstname;
+SELECT * FROM customers ORDER BY firstname,age;
+
+SELECT id,firstname,lastname,amount,city FROM customers ORDER BY 2;
+SELECT id,firstname,lastname,amount,city FROM customers ORDER BY 3;
+SELECT id,firstname,lastname,amount,city FROM customers ORDER BY 5 DESC;
+
+
+

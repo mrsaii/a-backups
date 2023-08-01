@@ -1,0 +1,101 @@
+=> Comments
+
+Single Line Comment
+# comment here
+-- comment here
+/* comment here */
+
+
+Multi Line Comment
+
+/*
+comment here
+comment here
+*/
+
+
+---------------------------------------------------------------------------
+
+
+=> Arithmethic Operators(5 types)
+
+Operator 							Meaning 								Operate On
++ ( Add ) 							Addition								Numberic Value
+- ( Subtract )						Subtraction 							Numberic Value    * ( Multiply )					  Multipliation 						  Numberic Value
+/ ( divide )						Division 							    Numberic Value
+% ( Modulus )					    Returns remainder of devision 			Numberic Value
+
+
+---------------------------------------------------------------------------------
+
+Exercise Addition Operator = Syantax
+
+SELECT 10 + 2;
+SELECT '10' + 2;
+SELECT '10' + '2';
+SELECT 100+20, 30 + 20;
+SELECT '100' + '200', '300'+400;
+
+SELECT 100+'aung aung';      #result = 100
+SELECT '100' + 'aung aung';		#result = 100
+SELECT 'aung aung' + 100;		#result = 100
+SELECT 'kyaw kyaw' + 'aung aung';		#result = 0
+
+-----------------------------------------------
+
+Exercise Subtraction Operator = Syantax
+SELECT 10 - 2;
+SELECT 20-10,30-15;
+SELECT '1000'-'500', 500- '600';
+
+-------------------------------------------
+
+Exercise Multiplication Operator = Syantax
+SELECT 10 * 2;
+SELECT 20*10,30*15;
+SELECT '20'*'3', 100 * '5';
+
+---------------------------------------
+
+Exercise Division Operator = Syantax
+SELECT 10 / 2;
+SELECT 2/3,3/5;
+SELECT '100'/'3', 2000 / '5', 12 / 0 (NULL);
+
+SELECT 50 / 2;
+SELECT 50 DIV 2;
+SELECT 5 DIV 2, -40 DIV 2, -100 DIV -20;
+SELECT '220' / 3, 400 DIV '3';
+
+----------------------------------------
+
+Exercise Modulus Operator = Syantax
+
+SELECT 10%3;
+SELECT 20%3, 30 % 5;
+SELECT '20' % 5, '500' % '300';
+
+SELECT 10 % 3;
+SELECT 10 MOD 3;
+SELECT 5 MOD 2, '60' MOD 3, '70' MOD '5';
+SELECT 70 MOD 3, MOD(10,3);
+
+-----------------------------------------
+
+CRUD
+Create / Read / Update / Delete
+
+CREATE DATABASE - creates a new database
+CREATE TABLE - creates a new table
+
+ALTER DATABASE - modifies a database
+ALTER TABLE - modifies a table
+
+DROP DATABASE - delete a database
+DROP TABLE - delete a table
+
+
+INSERT INTO - inserts new data into a database
+SELECT - extracts data from database
+UPDATE - updates data in a database
+DELETE - deletes data in a database

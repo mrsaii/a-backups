@@ -1,0 +1,41 @@
+=> SSH Register 
+(i)Github Config 
+(ii)Export SSH Key from PC 
+
+
+=>(i)Github Config 
+
+User Account > Settings > SSH and GPF Keys > Click New SSH Keys
+
+
+=>(ii)Export SSH Key from PC 
+
+ssh-keygen --help
+
+Method 1 (RSA Rivest-ShamirAdleman)
+ssh-keygen -t rsa
+
+Method 2 
+ssh-keygen -t ed25519 -C "Key For Github" 
+
+Method 3
+ssh-keygen -t rsa -b 4096 -C "Key For Github" 
+
+
+
+For Linux 
+cd /home/dominik/.ssh 
+cat id_rsa.pub  (.pub ကိုပဲဖတ်ရမယ်)
+
+(or)
+
+cat ~/.ssh/id_rsa.pub 
+
+
+=>Check Connected or not
+ssh -T git@github.com
+
+------------------------------------------
+
+git config --global user.name 
+git config --global user.email
